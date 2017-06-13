@@ -1,0 +1,37 @@
+AssetBundle is a special <a href="http://berserk-games.com/knowledgebase/object">Object</a> type that has access to assetbundle related functions like looping and trigger effects. Once you have a reference to an <a href="http://berserk-games.com/knowledgebase/object">Object</a> you can  call these functions like this: <font face="monospace">obj.AssetBundle.getLoopingEffects()</font>.
+ 
+<a class="anchor" name="Functions"></a>
+<table width="100%">
+	<caption><strong><h3>Functions</h3></strong></caption>
+	<tr>
+		<th class="table_column_rv">Return Value</th>
+		<th class="table_column_fn">Function Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><font face="monospace">int</font></td>
+		<td><font face="monospace">getLoopingEffectIndex()</font></td>
+		<td><a class="anchor" name="getLoopingEffectIndex"></a>Returns the index of the currently looping effect.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">Table</font></td>
+		<td><font face="monospace">getLoopingEffects()</font></td>
+		<td><a class="anchor" name="getLoopingEffects"></a>Returns a Table with the keys “index” and “name” for each looping effect.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">Table</font></td>
+		<td><font face="monospace">getTriggerEffects()</font></td>
+		<td><a class="anchor" name="getTriggerEffects"></a>Returns a Table with the keys “index” and “name” for each trigger effect.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">void</font></td>
+		<td><font face="monospace">playLoopingEffect( int index )</font></td>
+		<td><a class="anchor" name="playLoopingEffect"></a>Starts playing a looping effect. Index starts at 0.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">void</font></td>
+		<td><font face="monospace">playTriggerEffect( int index )</font></td>
+		<td><a class="anchor" name="playTriggerEffect"></a>Starts playing a trigger effect. Index starts at 0.</td>
+	</tr>
+</table>
+ 

@@ -1,0 +1,55 @@
+<br />Welcome to <strong>Lua Scripting</strong> in Tabletop Simulator! Scripting is an advanced feature and it's expected you already know something about it. However, for complete novices, check out this <a href="http://steamcommunity.com/sharedfiles/filedetails/?id=714904631" target="_blank">beginners scripting guide to Lua</a> created by MrStump, to help you along the way.
+<br /><img src="http://i.imgur.com/yav7CAs.gif"></img>
+<br />A game is composed of one Global Script and zero to many Object Scripts. The Global Script is a script that lives in your game that can run background tasks and do general game management type functions. Object scripts are attached to an individual object. Objects are anything with a physical model in the game - chess piece, dice, decks, cards, bags, custom models, boards, etc. Both types of scripts can call the same functions, but Object scripts have access to a reference of the Object it is attached to with the <font face="monospace">self</font> keyword.
+<h1>Writing Lua Scripts</h1>
+The Lua code is written via our in-game code editor or via our <a href="http://berserk-games.com/knowledgebase/atom-editor-plugin/">Official Plugin for the Atom Text Editor</a>. Lua scripts are stored in the .json file of the save game as a plain text string. There is no need for an external internet host for Lua scripts, everything is self-contained in your game's save file (Workshop uploads work the same way).
+<h2>Official Atom Plugin</h2>
+The preferred method of writing Lua scripts is using our <a href="http://berserk-games.com/knowledgebase/atom-editor-plugin/">Official Plugin for the Atom Text Editor</a>. It has all of the functionality of the in-game editor plus line numbers, syntax highlighting, autocomplete, and a modern look.
+<img src="http://i.imgur.com/MI2t10L.png" />
+ 
+<h2>TTS Lua Editor</h2>
+You can access the in-game Lua Editor by clicking on Host -> Scripting or by right clicking on an object, choosing Scripting, and then selecting Lua Editor from the contextual menu. In the Lua Editor, the tabs on the left of the editor let you switch between the Global and the Object scripts. If you prefer coding in another environment, you can easily copy and paste your code into the in-game editor. To save the code, simply close the Lua Editor (save the game to commit the code to the save .json file). Once your Lua code is written, you can use the Save & Play button to commit your changes to your save file and reload for quick iteration. Save & Play will only commit your script changes, any changes made that weren’t scripting will be lost.
+<br /><img src="http://i.imgur.com/V1LfMY8.png"></img>
+ 
+<h1>Example Mods</h1>
+<a href="http://steamcommunity.com/sharedfiles/filedetails/?id=620967608" target="_blank">BlackJack</a>
+<br /><a href="http://steamcommunity.com/sharedfiles/filedetails/?id=659350499" target="_blank">Chess Clock</a>
+<br /><a href="http://steamcommunity.com/sharedfiles/filedetails/?id=659349425" target="_blank">Roulette</a>
+<br /><a href="http://steamcommunity.com/sharedfiles/filedetails/?id=737574536" target="_blank">Interactable</a>
+ 
+<h1>Lua Standard Libraries</h1>
+We include a subset of the Lua standard libraries into our interpreter to provide a safe sandbox for user scripts to run.<br /><br />
+ 
+<strong>Basic</strong> - The basic methods. Includes <font face="monospace">assert</font>, <font face="monospace">collectgarbage</font>, <font face="monospace">error</font>, <font face="monospace">print</font>, <font face="monospace">select</font>, <font face="monospace">type</font>, <font face="monospace">tonumber</font>, and <font face="monospace">tostring</font>.<br />
+<strong>Bit32</strong> - The bit32 package.<br />
+<strong>Coroutine</strong> - The coroutine package.<br />
+<strong>Dynamic</strong> - The <font face="monospace">dynamic</font> package (introduced by MoonSharp).<br />
+<strong>ErrorHandling</strong> - The error handling methods: <font face="monospace">pcall</font> and <font face="monospace">xpcall</font>.<br />
+<strong>GlobalConsts</strong> - The global constants: <font face="monospace">_G</font>, <font face="monospace">_VERSION</font>, and <font face="monospace">_MOONSHARP</font>.<br />
+<strong>Math</strong> - The math package.<br />
+<strong>Metatables</strong> - The metatable methods : <font face="monospace">setmetatable</font>, <font face="monospace">getmetatable</font>, <font face="monospace">rawset</font>, <font face="monospace">rawget</font>, <font face="monospace">rawequal</font>, and <font face="monospace">rawlen</font>.<br />
+<strong>OS_Time</strong> - The time methods of the <font face="monospace">os</font> package: <font face="monospace">clock</font>, <font face="monospace">difftime</font>, <font face="monospace">date</font>, and <font face="monospace">time</font>.<br />
+<strong>String</strong> - The string package.<br />
+<strong>Table</strong> - The table package.<br />
+<strong>TableIterators</strong> - The table iterators: <font face="monospace">next</font>, <font face="monospace">ipairs</font>, and <font face="monospace">pairs</font>.<br /><br />
+ 
+For further information:<br />
+<a href="http://www.lua.org/home.html">Official Lua Website</a><br />
+<a href="http://www.moonsharp.org/">MoonSharp</a><br />
+ 
+<h1>Default Events</h1>
+<br />We provide some default events that your scripts can subscribe to. See our <a href='http://berserk-games.com/knowledgebase/api/'>API</a> for a list of default events. To subscribe to a default event, just add the function to your script and it will be automagically be called if it exists. For example, the <a href="http://berserk-games.com/knowledgebase/api/#onLoad"><font face="monospace">onLoad()</font></a> function will be called when a game completely finishes loading.
+<br />Hello World of TTS Lua Scripting
+<blockquote><font face="monospace">
+function onLoad()
+&nbsp;&nbsp;&nbsp;&nbsp;print('Hello World!')
+end
+</font></blockquote>
+<br />This block of code can be added to the Global Script or any of the Object scripts. It will be called from each Script that you add it to. The <font face="monospace">print()</font> function prints a message into the Chat window of the Host. The <font face="monospace">print()</font> function should be used for debugging purposes.
+<br /><strong>Note</strong>: We provide access to the <font face="monospace">update()</font> event; however, please be cautious when using this function (try to avoid using it altogether) because this function is called once per frame for every frame and can really impact performance if a computationally heavy operation happens (the frame will be delayed from rendering until this function ends). There are legitimate uses for the <font face="monospace">update()</font> function so we provide it.
+ 
+<br />Other Scripting Articles:<br />
+<a href="http://berserk-games.com/knowledgebase/api/">API</a><br />
+<a href="http://berserk-games.com/knowledgebase/atom-editor-plugin/">Official Atom Text Editor Plugin</a><br />
+<a href="http://berserk-games.com/knowledgebase/spawnable-objects/">List of Spawnable Objects</a><br />
+<a href="http://berserk-games.com/knowledgebase/player-colors/">Player Colors</a><br />

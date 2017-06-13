@@ -1,0 +1,531 @@
+Objects can be spawned from any script using the <a href="http://berserk-games.com/knowledgebase/api/#spawnObject"><font face="monospace">spawnObject()</font></a> function. The <font face="monospace">string type</font> in <a href="http://berserk-games.com/knowledgebase/api/#spawnObject"><font face="monospace">spawnObject()</font></a> should be one of the following:
+<br />
+<a href="#Custom_Objects">Spawning Custom Objects</a>
+<br /><strong>Boards</strong>
+<ul><li>backgammon_board</li>
+	<li>CardBot_Board</li>
+	<li>Checker_Board</li>
+	<li>Chess_Board</li>
+	<li>Chinese_Checkers_Board</li>
+	<li>Go_Board</li>
+	<li>Pachisi_Board</li>
+	<li>reversi_board</li>
+</ul>
+<br /><strong>Containers</strong>
+<ul>
+	<li>Bag</li>
+	<li>Bowl</li>
+	<li>Cup</li>
+	<li>go_game_bowl_black</li>
+	<li>go_game_bowl_white</li>
+	<li>Infinite_Bag</li>
+</ul>
+<br /><a href="#Custom_Objects"><strong>Custom</strong></a>
+<ul>
+	<li><a href="#Custom_Assetbundle">Custom_Board</a></li>
+	<li><a href="#Custom_Board">Custom_Board</a></li>
+	<li><a href="#Custom_Dice">Custom_Dice</a></li>
+	<li>DeckCustom <font color="#3d8b40">--Not implemented yet.</font></li>
+	<li><a href="#Figurine_Custom">Figurine_Custom</a></li>
+	<li><a href="#Custom_Model">Custom_Model</a></li>
+	<li><a href="#Custom_Tile">Custom_Tile</a></li>
+	<li><a href="#Custom_Token">Custom_Token</a></li>
+</ul>
+<br /><strong>Figurines</strong>
+<ul>
+	<li>Figurine_Card_Bot</li>
+	<li>Figurine_Kimi_Kat</li>
+	<li>Figurine_Knil</li>
+	<li>Figurine_Mara</li>
+	<li>Figurine_Sir_Loin</li>
+	<li>Figurine_Zeke</li>
+	<li>Figurine_Zomblor</li>
+</ul>
+<br /><strong>Game Pieces</strong>
+<ul>
+	<li>backgammon_piece_brown</li>
+	<li>backgammon_piece_white</li>
+	<li>BlockRectangle</li>
+	<li>BlockSquare</li>
+	<li>BlockTriangle</li>
+	<li>Card</li>
+	<li>Checker_black</li>
+	<li>Checker_red</li>
+	<li>Checker_white</li>
+	<li>Chess_Bishop</li>
+	<li>Chess_King</li>
+	<li>Chess_Knight</li>
+	<li>Chess_Pawn</li>
+	<li>Chess_Queen</li>
+	<li>Chess_Rook</li>
+	<li>Chinese_Checkers_Piece</li>
+	<li>Chip_10</li>
+	<li>Chip_50</li>
+	<li>Chip_100</li>
+	<li>Chip_500</li>
+	<li>Chip_1000</li>
+	<li>Deck</li>
+	<li>Die_4</li>
+	<li>Die_6</li>
+	<li>Die_6_Rounded</li>
+	<li>Die_8</li>
+	<li>Die_10</li>
+	<li>Die_12</li>
+	<li>Die_20</li>
+	<li>Die_Piecepack</li>
+	<li>Domino</li>
+	<li>go_game_piece_black</li>
+	<li>go_game_piece_white</li>
+	<li>Mahjong_Coin</li>
+	<li>Mahjong_Stick</li>
+	<li>Mahjong_Tile</li>
+	<li>Metal Ball</li>
+	<li>PiecePack_Arms</li>
+	<li>PiecePack_Crowns</li>
+	<li>PiecePack_Moons</li>
+	<li>PiecePack_Suns</li>
+	<li>PlayerPawn</li>
+	<li>Quarter</li>
+	<li>reversi_chip</li>
+</ul>
+<br /><strong>RPG Figures</strong>
+<ul>
+	<li>rpg_BARGHEST</li>
+	<li>rpg_BASILISK</li>
+	<li>rpg_BEAR</li>
+	<li>rpg_BLACK_DRAGON</li>
+	<li>rpg_CENTAUR</li>
+	<li>rpg_CERBERUS</li>
+	<li>rpg_CHIMERA</li>
+	<li>rpg_CRASC</li>
+	<li>rpg_CYCLOP</li>
+	<li>rpg_DARKNESS_WARLORD</li>
+	<li>rpg_DRAGONIDE</li>
+	<li>rpg_EVIL_WATCHER</li>
+	<li>rpg_GHOUL</li>
+	<li>rpg_GIANT_VIPER</li>
+	<li>rpg_GOBLIN</li>
+	<li>rpg_GOLEM</li>
+	<li>rpg_GRIFFON</li>
+	<li>rpg_HYDRA</li>
+	<li>rpg_KNIGHT</li>
+	<li>rpg_KOBOLD</li>
+	<li>rpg_LIZARD_WARRIOR</li>
+	<li>rpg_MAGE</li>
+	<li>rpg_MANTICORA</li>
+	<li>rpg_MUMMY</li>
+	<li>rpg_OGRE</li>
+	<li>rpg_ORC</li>
+	<li>rpg_RANGER</li>
+	<li>rpg_RAT</li>
+	<li>rpg_SKELETON_KNIGHT</li>
+	<li>rpg_TEMPLATE</li>
+	<li>rpg_THIEF</li>
+	<li>rpg_TREE_ENT</li>
+	<li>rpg_TROLL</li>
+	<li>rpg_VAMPIRE</li>
+	<li>rpg_WARRIOR</li>
+	<li>rpg_WEREWOLF</li>
+	<li>rpg_WYVERN</li>
+</ul>
+<br /><strong>Tilesets</strong>
+<ul>
+	<li>Tileset_Barrel</li>
+	<li>Tileset_Chair</li>
+	<li>Tileset_Chest</li>
+	<li>Tileset_Corner</li>
+	<li>Tileset_Floor</li>
+	<li>Tileset_Rock</li>
+	<li>Tileset_Table</li>
+	<li>Tileset_Tree</li>
+	<li>Tileset_Wall</li>
+</ul>
+<br /><strong>Tools</strong>
+<ul>
+	<li>Calculator</li>
+	<li>Counter</li>
+	<li>Digital_Clock</li>
+	<li>Notecard</li>
+	<li>Tablet</li>
+</ul>
+<br /><strong>Triggers</strong>
+<ul>
+	<li>ScriptingTrigger</li>
+	<li>FogOfWarTrigger</li>
+</ul>
+ 
+<a name="Custom_Objects"></a>
+<h2>Spawning Custom Objects</h2>
+Immediately after spawning a Custom Object, you should call <a href="http://berserk-games.com/knowledgebase/object/#setCustomObject"><font face="monospace">setCustomObject()</font></a> with the appropriate parameters as a Table for the type of Custom Object spawned.
+<br />For example, to spawn a Custom Model:
+<blockquote><font face="monospace">
+obj_parameters = {}
+obj_parameters.type = 'Custom_Model'
+obj = spawnObject(obj_parameters)
+ 
+custom = {}
+custom.mesh = 'http://example.com/model.obj'
+custom.diffuse = 'http://example.com/diffuse.png'
+obj.setCustomObject(custom)
+</font></blockquote>
+<a name="Custom_Board"></a>
+<table width="100%">
+	<caption><strong><h3>Custom Board</h3></strong></caption>
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><font face="monospace">string image</font></td>
+		<td>The image for the Custom Board. The Custom Board model will automatically scale to match the dimensions of the image.</td>
+	</tr>
+</table>
+<a name="Custom_Dice"></a>
+<table width="100%">
+	<caption><strong><h3>Custom Dice</h3></strong></caption>
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><font face="monospace">string image</font></td>
+		<td>The image for the Custom Dice.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">int type</font></td>
+		<td>
+			<font color="#3d8b40">Optional.</font> The type of Custom Dice. This is typically the number of sides on the Dice. Defaults to 6-sided Dice.
+			<table>
+				<tr>
+					<th>Dice Type</th>
+					<th>Value</th>
+				</tr>
+				<tr>
+					<td>4-Sided</td>
+					<td>0</td>
+				</tr>
+				<tr>
+					<td>6-Sided</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>8-Sided</td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td>10-Sided</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>12-Sided</td>
+					<td>4</td>
+				</tr>
+				<tr>
+					<td>20-Sided</td>
+					<td>5</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<!-- Deck Custom -->
+<a name="Figurine_Custom"></a>
+<table width="100%">
+	<caption><strong><h3>Custom Figurine</h3></strong></caption>
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><font face="monospace">string image</font></td>
+		<td>The image for the Custom Figurine.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">string image_secondary</font></td>
+		<td><font color="#3d8b40">Optional.</font> The back image for the Custom Figurine.</td>
+	</tr>
+</table>
+<a name="Custom_Model"></a>
+<table width="100%">
+	<caption><strong><h3>Custom Model</h3></strong></caption>
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><font face="monospace">string mesh</font></td>
+		<td>The mesh URL for the Custom Model.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">string diffuse</font></td>
+		<td>The diffuse image URL for the Custom Model.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">string normal</font></td>
+		<td><font color="#3d8b40">Optional.</font> The normals image URL for the Custom Model.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">string collider</font></td>
+		<td><font color="#3d8b40">Optional.</font> The collider mesh URL for the Custom Model. Defaults to a box collider.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool convex</font></td>
+		<td><font color="#3d8b40">Optional.</font> Is the Custom Model convex? Defaults to false.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">int type</font></td>
+		<td>
+			<font color="#3d8b40">Optional.</font> The type of the Custom Model. Defaults to Generic.
+			<table>
+				<tr>
+					<th>Type</th>
+					<th>Value</th>
+				</tr>
+				<tr>
+					<td>Generic</td>
+					<td>0</td>
+				</tr>
+				<tr>
+					<td>Figurine</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>Dice</td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td>Coin</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>Board</td>
+					<td>4</td>
+				</tr>
+				<tr>
+					<td>Chip</td>
+					<td>5</td>
+				</tr>
+				<tr>
+					<td>Bag</td>
+					<td>6</td>
+				</tr>
+				<tr>
+					<td>Infinite</td>
+					<td>7</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">int material</font></td>
+		<td>
+			<font color="#3d8b40">Optional.</font> The material of the Custom Model. Defaults to Plastic.
+			<table>
+				<tr>
+					<th>Material</th>
+					<th>Value</th>
+				</tr>
+				<tr>
+					<td>Plastic</td>
+					<td>0</td>
+				</tr>
+				<tr>
+					<td>Wood</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>Metal</td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td>Cardboard</td>
+					<td>3</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">float specular_intensity</font></td>
+		<td><font color="#3d8b40">Optional.</font> The specular intensity of the Custom Model. Defaults to 0.1.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">Table specular_color</font></td>
+		<td><font color="#3d8b40">Optional.</font> The specular color of the Custom Model. Color values are 0 to 1. Defaults to {1, 1, 1}.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">float specular_sharpness</font></td>
+		<td><font color="#3d8b40">Optional.</font> The specular sharpness of the Custom Model. Defaults to 3.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">float fresnel_strength</font></td>
+		<td><font color="#3d8b40">Optional.</font> The fresnel strength of the Custom Model. Defaults to 0.1.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool cast_shadows</font></td>
+		<td><font color="#3d8b40">Optional.</font> Should the Custom Model cast shadows? Defaults to true.</td>
+	</tr>
+</table>
+<a name="Custom_Tile"></a>
+<table width="100%">
+	<caption><strong><h3>Custom Tile</h3></strong></caption>
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><font face="monospace">string image</font></td>
+		<td>The image for the Custom Tile.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">int type</font></td>
+		<td>
+			<font color="#3d8b40">Optional.</font> The type of the Custom Tile. This is the shape of the Custom Tile. Defaults to rectangle.
+			<table>
+				<tr>
+					<th>Tile Type</th>
+					<th>Value</th>
+				</tr>
+				<tr>
+					<td>Box</td>
+					<td>0</td>
+				</tr>
+				<tr>
+					<td>Hex</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>Round</td>
+					<td>2</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">string image_bottom</font></td>
+		<td><font color="#3d8b40">Optional.</font> The bottom image for the Custom Tile. Defaults to the top image.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">float thickness</font></td>
+		<td><font color="#3d8b40">Optional.</font> The thickness of the Custom Tile. Defaults to 0.5.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool stackable</font></td>
+		<td><font color="#3d8b40">Optional.</font> Is this Custom Tile stackable? Defaults to false.</td>
+	</tr>
+</table>
+<a name="Custom_Token"></a>
+<table width="100%">
+	<caption><strong><h3>Custom Token</h3></strong></caption>
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><font face="monospace">string image</font></td>
+		<td>The image for the Custom Token.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">float thickness</font></td>
+		<td><font color="#3d8b40">Optional.</font> The thickness of the Custom Token. Defaults to 0.2.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">float merge_distance</font></td>
+		<td><font color="#3d8b40">Optional.</font> How accurate the edges of the Custom Token are to the image. Defaults to 15.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool stackable</font></td>
+		<td><font color="#3d8b40">Optional.</font> Is this Custom Token stackable? Defaults to false.</td>
+	</tr>
+</table>
+ 
+<a name="Custom_Assetbundle"></a>
+<table width="100%">
+	<caption><strong><h3>Custom AssetBundle</h3></strong></caption>
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><font face="monospace">string assetbundle</font></td>
+		<td>The assetbundle for the Custom AssetBundle.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">string assetbundle_secondary</font></td>
+		<td><font color="#3d8b40">Optional.</font> The secondary assetbundle for the Custom AssetBundle.</td>
+	</tr>
+<tr>
+		<td><font face="monospace">int type</font></td>
+		<td>
+			<font color="#3d8b40">Optional.</font> The type of the Custom AssetBundle. Defaults to Generic.
+			<table>
+				<tr>
+					<th>Type</th>
+					<th>Value</th>
+				</tr>
+				<tr>
+					<td>Generic</td>
+					<td>0</td>
+				</tr>
+				<tr>
+					<td>Figurine</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>Dice</td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td>Coin</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>Board</td>
+					<td>4</td>
+				</tr>
+				<tr>
+					<td>Chip</td>
+					<td>5</td>
+				</tr>
+				<tr>
+					<td>Bag</td>
+					<td>6</td>
+				</tr>
+				<tr>
+					<td>Infinite</td>
+					<td>7</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">int material</font></td>
+		<td>
+			<font color="#3d8b40">Optional.</font> The material of the Custom AssetBundle. Defaults to Plastic.
+			<table>
+				<tr>
+					<th>Material</th>
+					<th>Value</th>
+				</tr>
+				<tr>
+					<td>Plastic</td>
+					<td>0</td>
+				</tr>
+				<tr>
+					<td>Wood</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>Metal</td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td>Cardboard</td>
+					<td>3</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+ 
+</table>
+ 
+ 

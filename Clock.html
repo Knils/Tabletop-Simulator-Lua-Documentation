@@ -1,0 +1,51 @@
+Clock is a special <a href="http://berserk-games.com/knowledgebase/object">Object</a> type that has access to clock related functionality like timer, stopwatch, and the time. Once you have a reference to an <a href="http://berserk-games.com/knowledgebase/object">Object</a> you can  call these functions like this: <font face="monospace">obj.Clock.pauseStart()</font>.
+ 
+<a class="anchor" name="Member Variables"></a>
+<table width="100%">
+	<caption><strong><h3>Member Variables</h3></strong></caption>
+	<tr>
+		<th class="table_column_rv">Type</th>
+		<th class="table_column_fn">Variable Name</th>		
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">paused</font></td>		
+		<td><a class="anchor" name="paused"></a>If the Clock's timer is paused. Setting this value will pause or resume the timer.</td>
+	</tr>
+</table>
+ 
+<a class="anchor" name="Functions"></a>
+<table width="100%">
+	<caption><strong><h3>Functions</h3></strong></caption>
+	<tr>
+		<th class="table_column_rv">Return Value</th>
+		<th class="table_column_fn">Function Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><font face="monospace">int</font></td>
+		<td><font face="monospace">getValue()</font></td>
+		<td><a class="anchor" name="getValue"></a>Returns the current value in stopwatch or timer mode as the number of seconds. Returns 0 if the current time is displayed. This is the same as calling <a href="http://berserk-games.com/knowledgebase/object/#getValue"><font face="monospace">getValue()</font><a/> on the <a href="http://berserk-games.com/knowledgebase/object">Object</a> reference.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">pauseStart()</font></td>
+		<td><a class="anchor" name="pauseStart"></a>Toggle function for pausing and resuming a stopwatch or timer on the Clock. This function does nothing if the current time is displayed.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">setValue( int seconds )</font></td>
+		<td><a class="anchor" name="setValue"></a>Switches the clock to timer mode if it is not already in timer mode and sets the timer to the given value in seconds. Calling this function when the Clock is already in timer mode will reset the timer to the value and stop the timer. This is the same as calling <a href="http://berserk-games.com/knowledgebase/object/#setValue"><font face="monospace">setValue()</font></a> on the <a href="http://berserk-games.com/knowledgebase/object">Object</a> reference.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">showCurrentTime()</font></td>
+		<td><a class="anchor" name="showCurrentTime"></a>Switches the Clock back to displaying the current time. Any current timer or stopwatch will be lost. If the Clock is already displaying the current time, this function does nothing.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">startStopwatch()</font></td>
+		<td><a class="anchor" name="startStopwatch"></a>Switches the Clock to stopwatch mode and begins the stopwatch from 0. If the Clock is already in stopwatch mode, this will reset the stopwatch back to 0 and begin.</td>
+	</tr>
+</table>

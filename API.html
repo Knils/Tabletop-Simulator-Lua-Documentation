@@ -1,0 +1,336 @@
+The API is consistent for Global or <a href="http://berserk-games.com/knowledgebase/object">Object</a> Scripts, but <a href="http://berserk-games.com/knowledgebase/object">Object</a> Scripts have access to <font face="monospace">self</font> which is the <a href="http://berserk-games.com/knowledgebase/object">Object</a> the script is attached to. An introduction can be found <a href="http://berserk-games.com/knowledgebase/scripting/">here</a>.
+<br /><strong>Classes</strong>
+<a href="http://berserk-games.com/knowledgebase/clock/">Clock</a>
+<a href="http://berserk-games.com/knowledgebase/counter/">Counter</a>
+<a href="http://berserk-games.com/knowledgebase/object/">Object</a>
+<a href="http://berserk-games.com/knowledgebase/rpgfigurine/">RPGFigurine</a>
+<a href="http://berserk-games.com/knowledgebase/texttool/">TextTool</a>
+<br /><strong>Static Classes</strong>
+<a href="http://berserk-games.com/knowledgebase/json/">JSON</a>
+<a href="http://berserk-games.com/knowledgebase/player/">Player</a>
+<a href="http://berserk-games.com/knowledgebase/timer/">Timer</a>
+<a href="http://berserk-games.com/knowledgebase/scripting-physics/">Physics</a>
+<a href="http://berserk-games.com/knowledgebase/scripting-lighting/">Lighting</a>
+<a class="anchor" name="Default Events"></a>
+<table width="100%">
+	<caption><h3>Default Events</h3></caption>
+	<tr>
+		<th class="table_column_rv">Return Value</th>
+		<th class="table_column_fn">Function Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><font face="monospace">none</font></td>
+		<td><font face="monospace">fixedUpdate()</font></td>
+		<td>
+			<a class="anchor" name="fixedUpdate"></a>This function is called, if it exists in your script, every physics tick which happens 90 times a second. This is a frame independent update() and just like update() it's an expensive event that should be used sparingly.
+		</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">none</font></td>
+		<td><font face="monospace">onCollisionEnter( Table collision_info )</font></td>
+		<td>
+			<a class="anchor" name="onCollisionEnter"></a>This function is called, if it exists in your script, when this <a href="http://berserk-games.com/knowledgebase/object">Object</a> collides with another <a href="http://berserk-games.com/knowledgebase/object">Object</a>.The Global Script does not have an <font face="monospace">onCollisionEnter()</font> event since it does not have a physical representation that can collide.
+			<br />Collision Info Table:
+			<font face="monospace">
+				collision_info.collision_object = <a href="http://berserk-games.com/knowledgebase/object">Object</a> collision_object<br />
+				collision_info.contact_points = Table contact_points <font color="#3d8b40">This is an array (Table) of Tables. Each contact point is a Table <a href="http://berserk-games.com/knowledgebase/vector">Vector</a>.</font><br />
+				collision_info.relative_velocity = <a href="http://berserk-games.com/knowledgebase/vector">Vector</a>
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">none</font></td>
+		<td><font face="monospace">onCollisionExit( Table collision_info )</font></td>
+		<td>
+			<a class="anchor" name="onCollisionExit"></a>This function is called, if it exists in your script, when this <a href="http://berserk-games.com/knowledgebase/object">Object</a> stops touching another <a href="http://berserk-games.com/knowledgebase/object">Object</a>.The Global Script does not have an <font face="monospace">onCollisionEnter()</font> event since it does not have a physical representation that can collide.
+			<br />Collision Info Table:
+			<font face="monospace">
+				collision_info.collision_object = <a href="http://berserk-games.com/knowledgebase/object">Object</a> collision_object<br />
+				collision_info.contact_points = Table contact_points <font color="#3d8b40">This is an array (Table) of Tables. Each contact point is a Table <a href="http://berserk-games.com/knowledgebase/vector">Vector</a>.</font><br />
+				collision_info.relative_velocity = <a href="http://berserk-games.com/knowledgebase/vector">Vector</a>
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">none</font></td>
+		<td><font face="monospace">onCollisionStay( Table collision_info )</font></td>
+		<td>
+			<a class="anchor" name="onCollisionStay"></a>This function is called, if it exists in your script, <strong>every frame</strong> when this <a href="http://berserk-games.com/knowledgebase/object">Object</a> is touching another <a href="http://berserk-games.com/knowledgebase/object">Object</a> until it is <a href="http://berserk-games.com/knowledgebase/object#resting">resting</a>.The Global Script does not have an <font face="monospace">onCollisionEnter()</font> event since it does not have a physical representation that can collide. This is an expensive event only use if is necessary.
+			<br />Collision Info Table:
+			<font face="monospace">
+				collision_info.collision_object = <a href="http://berserk-games.com/knowledgebase/object">Object</a> collision_object<br />
+				collision_info.contact_points = Table contact_points <font color="#3d8b40">This is an array (Table) of Tables. Each contact point is a Table <a href="http://berserk-games.com/knowledgebase/vector">Vector</a>.</font><br />
+				collision_info.relative_velocity = <a href="http://berserk-games.com/knowledgebase/vector">Vector</a>
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">none</font></td>
+		<td><font face="monospace">onDestroy()</font></td>
+		<td><a class="anchor" name="onDestroy"></a>The <font face="monospace">onDestroy()</font> function is called, if it exists in your script, when an <a href="http://berserk-games.com/knowledgebase/object">Object</a> is destroyed. When <font face="monospace">onDestroy()</font> is called, the <a href="http://berserk-games.com/knowledgebase/object">Object</a> has one frame left to live but its recommended to avoid using it as a reference here. This event fires immediately after <a href="#onObjectDestroy"><font face="monospace">onObjectDestroy()</font></a> but their lifetime is the same final frame. The Global Script does not have an <font face="monospace">onDestroy()</font> event since it never dies.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">none</font></td>
+		<td><font face="monospace">onDrop( string <a href="http://berserk-games.com/knowledgebase/player-colors/">player_color</a> )</font></td>
+		<td><a class="anchor" name="onDrop"></a>This function is called, if it exists in your script, when this <a href="http://berserk-games.com/knowledgebase/object">Object</a> is dropped. The parameter <font face="monospace">player_color</font> is the color of the Player that dropped the <a href="http://berserk-games.com/knowledgebase/object">Object</a>. The Global Script does not have an <font face="monospace">onDrop()</font> event since it does not have a physical representation that can be dropped.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">none</font></td>
+		<td><font face="monospace">onLoad( string save_state )</font></td>
+		<td><a class="anchor" name="onload"></a><a class="anchor" name="onLoad"></a>The <font face="monospace">onLoad()</font> function is called, if it exists in your script, when a game save is finished loading every <a href="http://berserk-games.com/knowledgebase/object">Object</a>. This is where most setup code will go. The parameter <font face="monospace">save_state</font> will include the JSON string of the previously saved Lua code state. If there was no previously saved Lua code, this parameter will be an empty string. It is recommended to use an if statement in <font face="monospace">onLoad()</font> to check wether this parameter is empty or not to use different code paths for loading a game - clean start of a game vs loading a game with existing Lua states. This applies to Rewind and Fast Forward too as they will call the <font face="monospace">onLoad()</font> function.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">none</font></td>
+		<td><font face="monospace">onObjectDestroy( <a href="http://berserk-games.com/knowledgebase/object">Object</a> dying_object )</font></td>
+		<td><a class="anchor" name="onObjectDestroy"></a>This function is called, if it exists in your script, whenever an <a href="http://berserk-games.com/knowledgebase/object">Object</a> is destroyed. The dying Object has 1 frame left to live. This event fires immediately before the dying Object's <a href="#onDestroy"><font face="monospace">onDestroy()</font></a> but their lifetime is the same final frame.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">none</font></td>
+		<td><font face="monospace">onObjectDrop( string <a href="http://berserk-games.com/knowledgebase/player-colors/">player_color</a>, <a href="http://berserk-games.com/knowledgebase/object">Object</a> dropped_object )</font></td>
+		<td><a class="anchor" name="onObjectDrop"></a>This function is called, if it exists in your script, when an <a href="http://berserk-games.com/knowledgebase/object">Object</a> is dropped. The parameter <font face="monospace">player_color</font> is the color of the Player that dropped the <a href="http://berserk-games.com/knowledgebase/object">Object</a>.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">none</font></td>
+		<td><font face="monospace">onObjectEnterScriptingZone( <a href="http://berserk-games.com/knowledgebase/object">Object</a> zone, <a href="http://berserk-games.com/knowledgebase/object">Object</a> enter_object )</font></td>
+		<td><a class="anchor" name="onObjectEnterScriptingZone"></a>This function is called, if it exists in your script, whenever an <a href="http://berserk-games.com/knowledgebase/object">Object</a> enters any Scripting Zone that exists in your game.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">none</font></td>
+		<td><font face="monospace">onObjectLeaveContainer( <a href="http://berserk-games.com/knowledgebase/object">Object</a> container, <a href="http://berserk-games.com/knowledgebase/object">Object</a> leave_object )</font></td>
+		<td><a class="anchor" name="onObjectLeaveContainer"></a>This function is called, if it exists in your script, whenever an <a href="http://berserk-games.com/knowledgebase/object">Object</a> leaves any Container (Deck, Bag, Chip Stack, etc) that exists in your game.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">none</font></td>
+		<td><font face="monospace">onObjectLeaveScriptingZone( <a href="http://berserk-games.com/knowledgebase/object">Object</a> zone, <a href="http://berserk-games.com/knowledgebase/object">Object</a> leave_object )</font></td>
+		<td><a class="anchor" name="onObjectLeaveScriptingZone"></a>This function is called, if it exists in your script, whenever an <a href="http://berserk-games.com/knowledgebase/object">Object</a> leaves any Scripting Zone that exists in your game.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">none</font></td>
+		<td><font face="monospace">onObjectPickUp( string <a href="http://berserk-games.com/knowledgebase/player-colors/">player_color</a>, <a href="http://berserk-games.com/knowledgebase/object">Object</a> picked_up_object )</td>
+		<td><a class="anchor" name="onObjectPickUp"></a>This function is called, if it exists in your script, when an <a href="http://berserk-games.com/knowledgebase/object">Object</a> is picked up. The parameter <font face="monospace">player_color</font> is the color of the Player that picked up the <a href="http://berserk-games.com/knowledgebase/object">Object</a>.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">none</font></td>
+		<td><font face="monospace">onObjectSpawn( <a href="http://berserk-games.com/knowledgebase/object">Object</a> spawn_object )</td>
+		<td><a class="anchor" name="onObjectSpawn"></a>This function is called, if it exists in your script, when an <a href="http://berserk-games.com/knowledgebase/object">Object</a> is spawned / created.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">none</font></td>
+		<td><font face="monospace">onPickUp( string <a href="http://berserk-games.com/knowledgebase/player-colors/">player_color</a> )</font></td>
+		<td><a class="anchor" name="onPickUp"></a>This function is called, if it exists in your script, when this <a href="http://berserk-games.com/knowledgebase/object">Object</a> is picked up. The parameter <font face="monospace">player_color</font> is the color of the Player that picked up the <a href="http://berserk-games.com/knowledgebase/object">Object</a>. The Global Script does not have an <font face="monospace">onPickUp()</font> event since it does not have a physical representation that can be picked up.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">none</font></td>
+		<td><font face="monospace">onPlayerChangeColor( string <a href="http://berserk-games.com/knowledgebase/player-colors/">player_color</a> )</font></td>
+		<td><a class="anchor" name="onPlayerChangeColor"></a>This function is called, if it exists in your script, whenever a player changes color. You can use this function to run logic when a player joins the game (chooses a color) or leaves the game (will return Grey for spectator - even if they disconnect).</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">none</font></td>
+		<td><font face="monospace">onPlayerTurnEnd( string <a href="http://berserk-games.com/knowledgebase/player-colors/">player_color_end</a>, string <a href="http://berserk-games.com/knowledgebase/player-colors/">player_color_next</a> )</font></td>
+		<td><a class="anchor" name="onPlayerTurnEnd"></a>This function is called, if it exists in your script, at the end of a player's turn when using the in-game turn system.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">none</font></td>
+		<td><font face="monospace">onPlayerTurnStart( string <a href="http://berserk-games.com/knowledgebase/player-colors/">player_color_start</a>, string <a href="http://berserk-games.com/knowledgebase/player-colors/">player_color_previous</a> )</font></td>
+		<td><a class="anchor" name="onPlayerTurnSTart"></a>This function is called, if it exists in your script, at the start of a player's turn when using the in-game turn system.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">none</font></td>
+		<td><font face="monospace">onSave()</font></td>
+		<td><a class="anchor" name="onSave"></a>This function is called, if it exists in your script, whenever the game is saved (including auto-saves for Rewinding). Use this function to provide persistence for Lua scripts between saved games. Intended usage: create a Lua Table with all the variables that you want to save, use the <a href="http://berserk-games.com/knowledgebase/json/">JSON</a> class to serialize the Table into a string, and then return the string.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">none</font></td>
+		<td><font face="monospace">onScriptingButtonDown( int index, string <a href="http://berserk-games.com/knowledgebase/player-colors/">player_color</a> )</font></td>
+		<td><a class="anchor" name="onScriptingButtonDown"></a>This function is called, if it exists in your script, when a player presses down one of the scripting button hotkeys. Index range is 1 - 10.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">none</font></td>
+		<td><font face="monospace">onScriptingButtonUp( int index, string <a href="http://berserk-games.com/knowledgebase/player-colors/">player_color</a> )</font></td>
+		<td><a class="anchor" name="onScriptingButtonUp"></a>This function is called, if it exists in your script, when a player releases one of the scripting button hotkeys. Index range is 1 - 10.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">none</font></td>
+		<td><font face="monospace">update()</font></td>
+		<td><a class="anchor" name="update"></a>The <font face="monospace">update()</font> function is called, if it exists in your script, once every frame. Typically you don't want to add too much code in this function because it can impact game performance. It's probably best to avoid using this function if possible.</td>
+	</tr>
+</table>
+ 
+<a class="anchor" name="Global Management Functions"></a>
+<table width="100%">
+	<caption><strong><h3>Global Management Functions</h3></strong></caption>
+	<tr>
+		<th class="table_column_rv">Return Value</th>
+		<th class="table_column_fn">Function Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><font face="monospace">int</font></td>
+		<td><font face="monospace">addNotebookTab( Table parameters )</font></td>
+		<td>
+			<a class="anchor" name="addNotebookTab"></a>Adds a new Tab to the Notebook and returns the index of the newly added Tab. Returns -1 on failure.
+			<br />Parameters Table:
+			<font face="monospace">
+				local params = {}<br />
+				params.title = string title<font color="#3d8b40">--Title text for this Tab.</font><br />
+				params.body = string body <font color="#3d8b40">--Optional. Body text for this Tab. BBCode is allowed for styling.</font><br />
+				params.color = string color <font color="#3d8b40">--Optional. Color for this Tab. Defaults to Grey. <a href="http://berserk-games.com/knowledgebase/player-colors/">List of Player Colors</a>.</font><br />
+			</font>
+		</td>
+	</tr>
+	<tr>
+	<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">broadcastToAll( string message, <a href="http://berserk-games.com/knowledgebase/color">Color</a> )</font></td>
+		<td><a class="anchor" name="printToAll"></a>Prints a message to the screen and chat window on all connected clients. The last parameter (Table) provides the color of the text to appear in the Game tab chat window.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">broadcastToColor( string message, string <a href="http://berserk-games.com/knowledgebase/player-colors/">player_color</a>, <a href="http://berserk-games.com/knowledgebase/color">Color</a> )</font></td>
+		<td><a class="anchor" name="printToColor"></a>Prints a private message to the screen and chat window to the player matching the player color. The last parameter (Table) provides the color of the text to appear in the Game tab chat window.</td>
+	</tr>	
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">clearPixelPaint()</font></td>
+		<td><a class="anchor" name="clearPixelPaint"></a>Clears all pixel paint.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">clearVectorPaint()</font></td>
+		<td><a class="anchor" name="clearVectorPaint"></a>Clears all vector paint.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">copy( Table objects )</font></td>
+		<td><a class="anchor" name="copy"></a>Copies a list of <a href="http://berserk-games.com/knowledgebase/object">Objects</a>.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">destroyObject( <a href="http://berserk-games.com/knowledgebase/object">Object</a> obj )</font></td>
+		<td><a class="anchor" name="destroyObject"></a>Destroys/Deletes the given <a href="http://berserk-games.com/knowledgebase/object">Object</a>.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">editNotebookTab( Table parameters )</font></td>
+		<td>
+			<a class="anchor" name="editNotebookTab"></a>Edits an existing Tab on the Notebook.
+			<br />Parameters Table:
+			<font face="monospace">
+				local params = {}<br />
+				params.index = int index <font color="#3d8b40">Index for this Tab.</font><br />
+				params.title = string title <font color="#3d8b40">--Optional. Title text for this Tab.</font><br />
+				params.body = string body <font color="#3d8b40">--Optional. Body text for this Tab. BBCode is allowed for styling.</font><br />
+				params.color = string color <font color="#3d8b40">--Optional. Color for this Tab. <a href="http://berserk-games.com/knowledgebase/player-colors/">List of Player Colors</a>.</font><br />
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">flipTable()</font></td>
+		<td><a class="anchor" name="flipTable"></a>Flip the table in a fit of rage.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">Table</font></td>
+		<td><font face="monospace">getAllObjects()</font></td>
+		<td><a class="anchor" name="getAllObjects"></a>Returns a Table of all the spawned <a href="http://berserk-games.com/knowledgebase/object">Objects</a> in the game.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">Table</font></td>
+		<td><font face="monospace">getNotebookTabs()</font></td>
+		<td>
+			<a class="anchor" name="getNotebookTabs"></a>Returns a Table of Tables of all of the Tabs in the Notebook.
+			<br />Tab Table:
+			<font face="monospace">
+				table.index = int index <font color="#3d8b40">Index for this Tab.</font><br />
+				table.title = string title <font color="#3d8b40">Title text for this Tab.</font><br />
+				table.body = string body <font color="#3d8b40">Body text for this Tab. BBCode is allowed for styling.</font><br />
+				table.color = string color <font color="#3d8b40">Color for this Tab. <a href="http://berserk-games.com/knowledgebase/player-colors/">List of Player Colors</a>.</font><br />
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">string</font></td>
+		<td><font face="monospace">getNotes()</font></td>
+		<td><a class="anchor" name="getNotes"></a>Returns the current on-screen notes as a string.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace"><a href="http://berserk-games.com/knowledgebase/object">Object</a></font></td>
+		<td><font face="monospace">getObjectFromGUID( string guid )</font></td>
+		<td><a class="anchor" name="getObjectFromGUID"></a>Gets a reference to an <a href="http://berserk-games.com/knowledgebase/object">Object</a> from a GUID. Will return <font face="monospace">nil</font> if the <a href="http://berserk-games.com/knowledgebase/object">Object</a> doesn't exist.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">Table</font></td>
+		<td><font face="monospace">getSeatedPlayers()</font></td>
+		<td><a class="anchor" name="getSeatedPlayers"></a>Returns an indexed Lua Table of all the players that are currently seated at the table. This will not return spectators (Grey) or the Black player.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">Table</font></td>
+		<td><font face="monospace">paste( Table parameters )</font></td>
+		<td>
+			<a class="anchor" name="paste"></a>Pastes copied <a href="http://berserk-games.com/knowledgebase/object">Objects</a> and returns a Table as a list of references to the newly spawned <a href="http://berserk-games.com/knowledgebase/object">Objects</a>
+			<br />Parameters Table:
+			<font face="monospace">
+				local params = {}<br />
+				params.position = <a href="http://berserk-games.com/knowledgebase/vector">Vector</a> <font color="#3d8b40">--Optional. Where to spawn the first pasted Object in the list. Defaults to {0, 3, 0}.</font><br />
+				params.snap_to_grid = boolean snap_to_grid <font color="#3d8b40">--Optional. Should the spawned Objects snap to the grid if the grid is turned on? Defaults to false.</font><br />
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">none</font></td>
+		<td><font face="monospace">print( string message )</font></td>
+		<td><a class="anchor" name="print"></a>Prints a message to the chat window only on the host. This should be used for debugging scripts, not for the host cheating in games.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">printToAll( string message, <a href="http://berserk-games.com/knowledgebase/color">Color</a> )</font></td>
+		<td><a class="anchor" name="printToAll"></a>Prints a message to the chat window on all connected clients. The last parameter (Table) provides the color of the text to appear in the Game tab chat window.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">printToColor( string message, string <a href="http://berserk-games.com/knowledgebase/player-colors/">player_color</a>, <a href="http://berserk-games.com/knowledgebase/color">Color</a> )</font></td>
+		<td><a class="anchor" name="printToColor"></a>Prints a private message to the chat window to the player matching the player color. The last parameter (Table) provides the color of the text to appear in the Game tab chat window.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">removeNotebookTab( int index )</font></td>
+		<td><a class="anchor" name="removeNotebookTab"></a>Removes a Tab from the Notebook at a given index.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">setNotes( string notes )</font></td>
+		<td><a class="anchor" name="setNotes"></a>Sets the current on-screen notes. BBCode is allowed for styling.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace"><a href="http://berserk-games.com/knowledgebase/object">Object</a></font></td>
+		<td><font face="monospace">spawnObject( Table parameters )</font></td>
+		<td>
+			<a class="anchor" name="spawnObject"></a>Spawns an <a href="http://berserk-games.com/knowledgebase/object">Object</a> at the given position and returns a reference to it. Some operations on the <a href="http://berserk-games.com/knowledgebase/object">Object</a> will need to wait a frame before you can access them. If you need to immediately use this <a href="http://berserk-games.com/knowledgebase/object">Object</a> in your script, chances are you will need to put this function call inside a coroutine so you can yield ("wait") a frame or more for the <a href="http://berserk-games.com/knowledgebase/object">Object</a> to be fully initialized. Alternatively, you can provide an optional callback function be automatically called when the <a href="http://berserk-games.com/knowledgebase/object">Object</a> is finished initializing. For a list of valid types of objects that can be spawned, see <a href="http://berserk-games.com/knowledgebase/spawnable-objects/">List of Spawnable Objects</a>.
+			<br />Parameters Table:
+			<font face="monospace">
+				local params = {}<br />
+				params.type = string type<br />
+				params.position = <a href="http://berserk-games.com/knowledgebase/vector">Vector</a> <font color="#3d8b40">--Optional. Defaults to {0, 3, 0}.</font><br />
+				params.rotation = <a href="http://berserk-games.com/knowledgebase/vector">Vector</a> <font color="#3d8b40">--Optional. Defaults to {0, 0, 0}.</font><br />
+				params.scale = <a href="http://berserk-games.com/knowledgebase/vector">Vector</a> <font color="#3d8b40">--Optional. Defaults to {1, 1, 1}.</font><br />
+				params.callback = string callback_function_name <font color="#3d8b40">--Optional.</font><br />
+				params.callback_owner = <a href="http://berserk-games.com/knowledgebase/object">Object</a> callback_owner <font color="#3d8b40">--Optional. Defaults to the Global Script.</font><br />
+				params.snap_to_grid = boolean snap_to_grid <font color="#3d8b40">--Optional. Should the spawned Objects snap to the grid if the grid is turned on? Defaults to false.</font><br />
+				params.params = Table callback_parameters <font color="#3d8b40">--Optional.</font>
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">startLuaCoroutine( <a href="http://berserk-games.com/knowledgebase/object">Object</a> function_owner, string function_name )</font></td>
+		<td><a class="anchor" name="startLuaCoroutine"></a>Starts a Lua function owned by function_owner as a coroutine. Make sure that the Lua function called by 'startLuaCoroutine' returns 1 when it's finished, otherwise you will encounter error messages.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace"><a href="http://berserk-games.com/knowledgebase/color">Color</a></font></td>
+		<td><font face="monospace">stringColorToRGB( string <a href="http://berserk-games.com/knowledgebase/player-colors/">player_color</a> )</font></td>
+		<td><a class="anchor" name="stringColorToRGB"></a>Converts a color string (player colors) to their RGB values. Returns <font face="monospace">nil</font> if an invalid/nonexistant color parameter is provided.</td>
+	</tr>
+</table>
+ 
+ 
+ 

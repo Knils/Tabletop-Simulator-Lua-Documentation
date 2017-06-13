@@ -1,0 +1,33 @@
+The static global Timer class provides methods for executing functions at a later time or repeatedly. Timers have a unique user-supplied identifier to keep track of running Timers. Because the static Timer class is shared among all <a href="http://berserk-games.com/knowledgebase/object/">Object</a> and Global scripts, make sure that you provide a unique identifier to avoid collisions. A good practice is to append the <a href="http://berserk-games.com/knowledgebase/object/">Object's</a> GUID to the end of the identifier string if a lot of <a href="http://berserk-games.com/knowledgebase/object/">Objects</a> will be making similarly named Timers.
+ 
+<a class="anchor" name="Functions"></a>
+<table width="100%">
+	<caption><strong><h3>Functions</h3></strong></caption>
+	<tr>
+		<th class="table_column_rv">Return Value</th>
+		<th class="table_column_fn">Function Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">create( Table parameters )</font></td>
+		<td>
+			<a class="anchor" name="create"></a>Creates a Timer. The Timer will delete itself when it's number of repetitions has been reached.
+			<br />Parameters Table:
+			<br /><font face="monospace">
+				local parameters = {}<br />
+				parameters.identifier = string identifier <font color="#3d8b40">--Custom name so that you can refer to this Timer. Must be unique between all <a href="http://berserk-games.com/knowledgebase/object/">Objects</a> and Global.</font><br />
+				parameters.function_name = string function_name<br />
+				parameters.function_owner = <a href="http://berserk-games.com/knowledgebase/object/">Object</a> function_owner <font color="#3d8b40">--Optional. Defaults to the calling <a href="http://berserk-games.com/knowledgebase/object/">Object</a>.</font><br />
+				parameters.parameters = Table parameters <font color="#3d8b40">--Optional. Parameters to pass to the function called with this Timer.</font><br />
+				parameters.delay = float delay <font color="#3d8b40">--Optional. The delay in seconds before this function fires. Defaults to 0.</font><br />
+				parameters.repetitions = int repetitions <font color="#3d8b40">--Optional. The number of times this function will be called. Use 0 for infinitely repeating. Defaults to 1.</font>
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">destroy( string identifier )</font></td>
+		<td><a class="anchor" name="destroy"></a>Destroys an existing timer. Returns false on failure or if the Timer doesn't exist.</td>
+	</tr>
+</table>

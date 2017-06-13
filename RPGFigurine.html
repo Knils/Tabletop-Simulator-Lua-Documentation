@@ -1,0 +1,65 @@
+RPGFigurine is a special <a href="http://berserk-games.com/knowledgebase/object">Object</a> type that has access to animations for RPG Figurines from the RPG Kit. Once you have a reference to an <a href="http://berserk-games.com/knowledgebase/object">Object</a> you can call these functions like this: <font face="monospace">obj.RPGFigurine.attack()</font>.
+ 
+Using the RPGFigurine events:
+<blockquote><font face="monospace">
+elf_guid = "7d884d"
+elf = {}
+knight_guid = "d08759"
+knight = {}
+ogre_guid = "604e4b"
+ogre = {}
+function onLoad()
+&nbsp;&nbsp;&nbsp;&nbsp;elf = getObjectFromGUID(elf_guid)
+&nbsp;&nbsp;&nbsp;&nbsp;knight = getObjectFromGUID(knight_guid)
+&nbsp;&nbsp;&nbsp;&nbsp;ogre = getObjectFromGUID(ogre_guid)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;function ogre.RPGFigurine.onAttack(hit_list)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for i, v in ipairs(hit_list) do
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print('Ogre attacked ' .. i .. ': ' .. v.name)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end
+&nbsp;&nbsp;&nbsp;&nbsp;end
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;function elf.RPGFigurine.onHit(attacker)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print('Elf hit by ' .. attacker.name)
+&nbsp;&nbsp;&nbsp;&nbsp;end
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;function knight.RPGFigurine.onHit(attacker)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print('Knight hit by ' .. attacker.name)
+&nbsp;&nbsp;&nbsp;&nbsp;end
+end
+</font></blockquote>
+ 
+<a class="anchor" name="Functions"></a>
+<table width="100%">
+	<caption><strong><h3>Functions</h3></strong></caption>
+	<tr>
+		<th class="table_column_rv">Return Value</th>
+		<th class="table_column_fn">Function Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">attack()</font></td>
+		<td><a class="anchor" name="attack"></a>Plays a random attack animation.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">changeMode()</font></td>
+		<td><a class="anchor" name="changeMode"></a>Changes the RPG Figurine's current mode. This can either be a different idle animation or changing held weapons depending on the RPG Figurine.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">die()</font></td>
+		<td><a class="anchor" name="die"></a>Plays the death animation. Call <font face="monospace">die()</font> again to reset the RPG Figurine.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">none</font></td>
+		<td><font face="monospace">onAttack( Table hit_list )</font></td>
+		<td><a class="anchor" name="onAttack"></a>This function is called, if it exists in your script, when this RPGFigurine attacks another RPGFigurine. The parameter <font face="monospace">hit_list</font> will be an indexed list of all the RPGFigurines that were hit during the attack. This function should be defined after a reference is retrieved to the RPGFigurine - see example above defining the <font face="monospace">onAttack()</font> inside of the <a href="http://berserk-games.com/knowledgebase/api/#onLoad"><font face="monospace">onLoad()</font></a> function.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">none</font></td>
+		<td><font face="monospace">onHit( <a href="http://berserk-games.com/knowledgebase/object">Object</a> attacker )</font></td>
+		<td><a class="anchor" name="onHit"></a>This function is called, if it exists in your script, when this RPGFigurine is attacked by another RPGFigurine. This function should be defined after a reference is retrieved to the RPGFigurine - see example above defining the <font face="monospace">onHit()</font> inside of the <a href="http://berserk-games.com/knowledgebase/api/#onLoad"><font face="monospace">onLoad()</font></a> function.</td>
+	</tr>
+</table>

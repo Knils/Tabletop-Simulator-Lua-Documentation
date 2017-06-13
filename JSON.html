@@ -1,0 +1,28 @@
+The static global JSON class provides encoding and decoding functions for JSON strings. Encode a variable into a valid JSON string using <font face="monospace">JSON.encode(variable)</font> or <font face="monospace">JSON.encode_pretty(variable)</font>. Decode a valid JSON string into a variable using <font face="monospace">JSON.decode(json_string)</font>.
+ 
+<strong>NOTE:</strong> JSON encoding and decoding will not work with <a href="http://berserk-games.com/knowledgebase/object">Object</a> references.
+ 
+<a class="anchor" name="Functions"></a>
+<table width="100%">
+	<caption><strong><h3>Functions</h3></strong></caption>
+	<tr>
+		<th class="table_column_rv">Return Value</th>
+		<th class="table_column_fn">Function Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><font face="monospace">variable</font></td>
+		<td><font face="monospace">decode( string json_string )</font></td>
+		<td><a class="anchor" name="decode"></a>Decodes a valid JSON string into a Lua string, number, or Table.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">string</font></td>
+		<td><font face="monospace">encode( variable )</td>
+		<td><a class="anchor" name="encode"></a>Encodes a Lua string, number, or Table into a valid JSON string. This will <strong>not</strong> work with <a href="http://berserk-games.com/knowledgebase/object">Object</a> references.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">string</font></td>
+		<td><font face="monospace">encode_pretty( variable )</td>
+		<td><a class="anchor" name="encode_pretty"></a>Encodes a Lua string, number, or Table into a valid JSON string formatted with indents (Human readable). This will <strong>not</strong> work with <a href="http://berserk-games.com/knowledgebase/object">Object</a> references.</td>
+	</tr>
+</table>

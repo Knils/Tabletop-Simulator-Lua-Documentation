@@ -1,0 +1,59 @@
+Vector is a Table that has keys x,y,z and 1,2,3. Vector can represent position, rotation, direction, etc.
+<table width="100%">
+<caption><h3>Keys</h3></caption>
+<tr>
+<th class="Key Letter">Key Letter</th>
+<th class="Key Number">Key Number</th>
+</tr>
+<tr>
+<td><font face="monospace">x</font></td>
+<td><font face="monospace">1</font></td>
+</tr>
+<tr>
+<td><font face="monospace">y</font></td>
+<td><font face="monospace">2</font></td>
+</tr>
+<tr>
+<td><font face="monospace">z</font></td>
+<td><font face="monospace">3</font></td>
+</tr>
+</table>
+<table width="100%">
+<br />
+<caption><h3>Types</h3></caption>
+<tr>
+<th class="Type">Type</th>
+<th class="Description">Description</th>
+<th class="Range">Range</th>
+</tr>
+<tr>
+<td><font face="monospace">Position</font></td>
+<td><font face="monospace">Point in Space</font></td>
+<td><font face="monospace">-Bounds to Bounds</font></td>
+</tr>
+<tr>
+<td><font face="monospace">Rotation</font></td>
+<td><font face="monospace">Angle Degrees</font></td>
+<td><font face="monospace">-180 to 180</font></td>
+</tr>
+<tr>
+<td><font face="monospace">Direction</font></td>
+<td><font face="monospace">Vector Direction</font></td>
+<td><font face="monospace">-1 to 1</td>
+</tr>
+</table> 
+<br /><strong>Ex</strong>: 
+<em><font face="monospace" color="green">local position = obj.getPosition()
+print(position.x, position.y, position.z)
+print(position[1], position[2], position[3])
+print(“Both are the same”)
+local new_position {x = 0, y = 5, z = 0}
+obj.setPosition(new_position)</font></em>
+<br />Vector has duplicate keys so you can create it with shorthand. 
+<strong>Ex</strong>: <em><font face="monospace" color="green">local position = {0.5, 1, 0.5}</font></em>
+<br />If Vector has mismatch between its x,y,z and 1,2,3 keys the x,y,z keys will take precedence if they exist in the Table.
+ 
+ 
+ 
+ 
+ 

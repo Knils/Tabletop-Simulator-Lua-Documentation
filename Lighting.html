@@ -1,0 +1,89 @@
+The static global Lighting class allows you to edit lighting of the current game just like the <a href="http://berserk-games.com/knowledgebase/lighting/
+">Lighting Menu</a>. For example, <font face="monospace">Lighting.light_intensity = 2</font> then <font face="monospace">Lighting.apply()</font>. You must call <font face="monospace">Lighting.apply()</font> for your changes to take affect.
+<a class="anchor" name="Member Variables"></a>
+<table width="100%">
+	<caption><strong><h3>Member Variables</h3></strong></caption>
+	<tr>
+		<th class="table_column_rv">Type</th>
+		<th class="table_column_fn">Variable Name</th>		
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><font face="monospace">int</font></td>
+		<td><font face="monospace">ambient_type</font></td>
+		<td><a class="anchor" name="ambient_type"></a>The source of the ambient light. 1 = Background, 2 = Gradient.</td>
+	</tr>
+  <tr>
+		<td><font face="monospace">float</font></td>
+		<td><font face="monospace">ambient_intensity</font></td>
+		<td><a class="anchor" name="ambient_intensity"></a>The strength of the ambient light either from the background or gradient. Range is 0-4.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">float</font></td>
+		<td><font face="monospace">light_intensity</font></td>
+		<td><a class="anchor" name="light_intensity"></a>The strength of the directional light shining down in the scene. Range is 0-4.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">float</font></td>
+		<td><font face="monospace">reflection_intensity</td>		
+		<td><a class="anchor" name="reflection_intensity"></a>The strenght of the reflections from the background. Range is 0-1.</td>
+	</tr>
+</table>
+ 
+<a class="anchor" name="Functions"></a>
+<table width="100%">
+	<caption><strong><h3>Functions</h3></strong></caption>
+	<tr>
+		<th class="table_column_rv">Return Value</th>
+		<th class="table_column_fn">Function Name</th>
+		<th>Description</th>
+	</tr>	
+  	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">apply()</font></td>
+		<td><a class="anchor" name="apply"></a>Applies all changed made to the Lighting class. This must be called for these changes to take affect.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace"><a href="http://berserk-games.com/knowledgebase/color">Color</a></font></td>
+		<td><font face="monospace">getAmbientEquatorColor()</font></td>
+		<td><a class="anchor" name="getAmbientEquatorColor"></a>Returns the <a href="http://berserk-games.com/knowledgebase/color">Color</a> of the gradient equator.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace"><a href="http://berserk-games.com/knowledgebase/color">Color</a></font></td>
+		<td><font face="monospace">getAmbientGroundColor()</font></td>
+		<td><a class="anchor" name="getAmbientGroundColor"></a>Returns the <a href="http://berserk-games.com/knowledgebase/color">Color</a> of the gradient ground.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace"><a href="http://berserk-games.com/knowledgebase/color">Color</a></font></td>
+		<td><font face="monospace">getAmbientSkyColor()</font></td>
+		<td><a class="anchor" name="getAmbientSkyColor"></a>Returns the <a href="http://berserk-games.com/knowledgebase/color">Color</a> of the gradient sky.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace"><a href="http://berserk-games.com/knowledgebase/color">Color</a></font></td>
+		<td><font face="monospace">getLightColor()</font></td>
+		<td><a class="anchor" name="getLightColor"></a>Returns the <a href="http://berserk-games.com/knowledgebase/color">Color</a> of the directional light.</td>
+	</tr>	
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">setAmbientEquatorColor( <a href="http://berserk-games.com/knowledgebase/color">Color</a> )</font></td>
+		<td><a class="anchor" name="setAmbientEquatorColor"></a>Sets the <a href="http://berserk-games.com/knowledgebase/color">Color</a> of the gradient equator.</td>
+	</tr>
+  	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">setAmbientGroundColor( <a href="http://berserk-games.com/knowledgebase/color">Color</a> )</font></td>
+		<td><a class="anchor" name="setAmbientGroundColor"></a>Sets the <a href="http://berserk-games.com/knowledgebase/color">Color</a> of the ambient ground.</td>
+	</tr>
+  	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">setAmbientSkyColor( <a href="http://berserk-games.com/knowledgebase/color">Color</a> )</font></td>
+		<td><a class="anchor" name="setAmbientSkyColor"></a>Sets the <a href="http://berserk-games.com/knowledgebase/color">Color</a> of the gradient sky.</td>
+	</tr>
+  	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">setLightColor( <a href="http://berserk-games.com/knowledgebase/color">Color</a> )</font></td>
+		<td><a class="anchor" name="setAmbientEquatorColor"></a>Sets the <a href="http://berserk-games.com/knowledgebase/color">Color</a> of the driectional light.</td>
+	</tr>
+</table>
+ 
+ 
+ 

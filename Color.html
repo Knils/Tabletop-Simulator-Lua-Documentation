@@ -1,0 +1,47 @@
+Color is a Table that has keys r,g,b,a and 1,2,3,4.
+<table width="100%">
+<caption><h3>Keys</h3></caption>
+<tr>
+<th class="table_column_color">Color</th>
+<th class="table_column_letter">Key Letter</th>
+<th class="table_column_number">Key Number</th>
+</tr>
+<tr>
+<td><font face="monospace" size="3">red</font></td>
+<td><font face="monospace">r</font></td>
+<td><font face="monospace">1</font></td>
+</tr>
+<tr>
+<td><font face="monospace">green</font></td>
+<td><font face="monospace">g</font></td>
+<td><font face="monospace">2</font></td>
+</tr>
+<tr>
+<td><font face="monospace">blue</font></td>
+<td><font face="monospace">b</font></td>
+<td><font face="monospace">3</font></td>
+</tr>
+<tr>
+<td><font face="monospace">alpha</font></td>
+<td><font face="monospace">a</font></td>
+<td><font face="monospace">4</font></td>
+</tr>
+</table>
+ 
+The alpha key is not always used depending on the function and is optional.
+ <br /><strong>Ex</strong>: 
+<em><font face="monospace" color="green">local color = obj.getColorTint()
+print(color.r, color.g, color.b)
+print(color[1], color[2], color[3])
+print(“Both are the same”)
+local new_color {r = 1, g = 0.5, b = 0.25}
+obj.setColorTint(new_color)</font></em>
+ <br />Color has duplicate keys so you can create it with shorthand. 
+<strong>Ex</strong>: <em><font face="monospace" color="green">local grey_color = {0.5, 0.5, 0.5}</font></em>
+ <br />If Color has mismatch between its r,g,b,a and 1,2,3,4 keys the r,g,b,a keys will take precedence if they exist in the Table.
+ <br />Each color value are 0-1. So if you are used to working with 255 just divide your values by 255.
+<strong>Ex</strong>: <em><font face="monospace" color="green">local color = {r = 55/255, g = 120/255, b = 150/255, a = 255/255}</font></em>
+.
+ 
+ 
+ 

@@ -1,0 +1,240 @@
+The static global Player class contains representations of all players as colors, i.e. "White". This class has member variables and functions related to the Players' pointers, hands, blindfolds, etc. For example, to get a reference to Player White, use <font face="monospace">Player.White</font> or <font face="monospace">Player["White"]</font>. If a player is seated at color White, then <font face="monospace">Player.White.seated</font> will be <font face="monospace">true</font>.
+<br /><a href="http://berserk-games.com/knowledgebase/player-colors/">List of Player Colors</a>
+<a class="anchor" name="Member Variables"></a>
+<table width="100%">
+	<caption><strong><h3>Member Variables</h3></strong></caption>
+	<tr>
+		<th class="table_column_rv">Type</th>
+		<th class="table_column_fn">Variable Name</th>		
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">admin</font></td>
+		<td><a class="anchor" name="admin"></a>Is the player currently promoted or hosting the game? Read only.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">blindfolded</font></td>
+		<td><a class="anchor" name="blindfolded"></a>Is the player blindfolded? Setting this will blindfold or remove the blindfold on the player.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">string</font></td>
+		<td><font face="monospace"><a href="http://berserk-games.com/knowledgebase/player-colors/">color</a></font></td>		
+		<td><a class="anchor" name="color"></a>The player's <a href="http://berserk-games.com/knowledgebase/player-colors/">color</a>. Read only.</td>
+	</tr>
+<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">host</font></td>
+		<td><a class="anchor" name="host"></a> Is the player the host?</td>
+	</tr>	
+	<tr>
+		<td><font face="monospace">float</font></td>
+		<td><font face="monospace">lift_height</font></td>
+		<td><a class="anchor" name="lift_height"></a>The player's lift height from 0 to 1.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">promoted</font></td>
+		<td><a class="anchor" name="promoted"></a>Is the player currently promoted?</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">seated</font></td>
+		<td><a class="anchor" name="seated"></a>Is the player currently seated at the table? Read only.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">string</font></td>
+		<td><font face="monospace">steam_id</font></td>
+		<td><a class="anchor" name="steam_id"></a>The player's Steam ID. Read only.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">string</font></td>
+		<td><font face="monospace">steam_name</font></td>
+		<td><a class="anchor" name="steam_name"></a>The player's Steam name. Read only.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">string</font></td>
+		<td><font face="monospace">team</font></td>
+		<td><a class="anchor" name="team"></a>The player's team. (None, Clubs, Diamonds, Hearts, Spades)</td>
+	</tr>
+</table>
+ 
+<a class="anchor" name="Functions"></a>
+<table width="100%">
+	<caption><strong><h3>Functions</h3></strong></caption>
+	<tr>
+		<th class="table_column_rv">Return Value</th>
+		<th class="table_column_fn">Function Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">attachCameraToObject( Table parameters )</font></td>
+		<td>
+			<a class="anchor" name="attachCameraToObject"></a>Makes a player's camera follow an <a href="http://berserk-games.com/knowledgebase/object">Object</a>.
+			<br />Parameters Table:
+			<br /><font face="monospace">
+				local parameters = {}<br />
+				parameters.object = <a href="http://berserk-games.com/knowledgebase/object">Object</a> object_to_attach_to<br />
+				parameters.offset = <a href="http://berserk-games.com/knowledgebase/vector">Vector</a> <font color="#3d8b40">--Optional</font><br />
+			</font>
+		</td>
+	</tr>	
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">changeColor(string color)</font></td>
+		<td><a class="anchor" name="changeColor"></a>Change the player to this color.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">Table</font></td>
+		<td><font face="monospace">getHandObjects()</font></td>
+		<td><a class="anchor" name="getHandObjects"></a>Returns a Lua Table as a list of all the Cards and Mahjong Tiles in the player's hand.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">Table</font></td>
+		<td><font face="monospace">getHandTransform()</font></td>
+		<td><a class="anchor" name="getHandTransform"></a> Returns the Transform of the player's hand.
+          
+          <table>
+            	<tr>
+                  <th>Type</th>
+                  <th>Name</th>
+                  <th>Description</th>
+                </tr>
+                 <tr>
+                  <td><a href="http://berserk-games.com/knowledgebase/vector">Vector</a>
+</td>
+                  <td>position</td>
+                  <td>World position.</td>
+                </tr>
+            	<tr>
+                  <td><a href="http://berserk-games.com/knowledgebase/vector">Vector</a>
+</td>
+                  <td>rotation</td>
+                  <td>World rotation.</td>
+                </tr>
+            	<tr>
+                  <td><a href="http://berserk-games.com/knowledgebase/vector">Vector</a>
+</td>
+                  <td>scale</td>
+                  <td>Local scale.</td>
+                </tr>
+            	<tr>
+                  <td><a href="http://berserk-games.com/knowledgebase/vector">Vector</a>
+</td>
+                  <td>forward</td>
+                  <td>Forward direction.</td>
+                </tr>
+            	<tr>
+                  <td><a href="http://berserk-games.com/knowledgebase/vector">Vector</a>
+</td>
+                  <td>right</td>
+                  <td>Right direction.</td>
+                </tr>
+            	<tr>
+                  <td><a href="http://berserk-games.com/knowledgebase/vector">Vector</a>
+</td>
+                  <td>up</td>
+                  <td>Up direction.</td>
+                </tr>
+           </table>
+          
+		The directional vectors are a coordinate system taking into account the rotation of the player's hand. This is useful when you want to get a position right in front or next to a player's hand. See the <a href="http://steamcommunity.com/sharedfiles/filedetails/?id=620967608">BlackJack</a> example and how the cards are dealt and how the poker chips are spawned. Returns <font face="monospace">nil</font> if there is no player assigned to that color.
+		</td>
+	</tr>
+	<tr>
+		<td><font face="monospace"><a href="http://berserk-games.com/knowledgebase/vector">Vector</a></font></td>
+		<td><font face="monospace">getPointerPosition()</font></td>
+		<td><a class="anchor" name="getPointerPosition"></a>Returns the position of the given player color's pointer. Returns <font face="monospace">nil</font> if the color there is no player assigned to that color.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">float</font></td>
+		<td><font face="monospace">getPointerRotation()</font></td>
+		<td><a class="anchor" name="getPointerRotation"></a>Returns the y-axis rotation of the given player color's pointer in degrees. This is also essentially the y-axis direction that the player's camera is facing. Returns <font face="monospace">nil</font> if there is no player assigned to that color.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">kick()</font></td>
+		<td><a class="anchor" name="kick"></a>Kicks a player.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">lookAt( Table parameters )</font></td>
+		<td>
+			<a class="anchor" name="lookAt"></a>Moves the Player's camera to look at a specific point. This function forces the Player into the third person mode.
+			<br />Parameters Table:
+			<br /><font face="monospace">
+				local parameters = {}<br />
+				parameters.position = <a href="http://berserk-games.com/knowledgebase/vector">Vector</a><br />
+				parameters.pitch = float pitch <font color="#3d8b40">--Optional</font><br />
+				parameters.yaw = float yaw <font color="#3d8b40">--Optional</font><br />
+				parameters.distance = float distance <font color="#3d8b40">--Optional</font><br />
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">mute()</font></td>
+		<td><a class="anchor" name="mute"></a>Mutes a player so they cannot use voice chat. Call again to unmute.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">promote()</font></td>
+		<td><a class="anchor" name="promote"></a>Promotes a player. Call again to demote.</td>
+	</tr>	
+  	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">setHandTransform( Table Transform)</font></td>
+		<td><a class="anchor" name="setHandTransform"></a> Sets the Transform of the player's hand.
+          
+          <table>
+            	<tr>
+                  <th>Type</th>
+                  <th>Name</th>
+                  <th>Description</th>
+                </tr>
+                 <tr>
+                  <td><a href="http://berserk-games.com/knowledgebase/vector">Vector</a>
+</td>
+                  <td>position</td>
+                  <td>World position.</td>
+                </tr>
+            	<tr>
+                  <td><a href="http://berserk-games.com/knowledgebase/vector">Vector</a>
+</td>
+                  <td>rotation</td>
+                  <td>World rotation.</td>
+                </tr>
+            	<tr>
+                  <td><a href="http://berserk-games.com/knowledgebase/vector">Vector</a>
+</td>
+                  <td>scale</td>
+                  <td>Local scale.</td>
+                </tr>
+            	<tr>
+                  <td><a href="http://berserk-games.com/knowledgebase/vector">Vector</a>
+</td>
+                  <td>forward</td>
+                  <td>Forward direction.</td>
+                </tr>
+            	<tr>
+                  <td><a href="http://berserk-games.com/knowledgebase/vector">Vector</a>
+</td>
+                  <td>right</td>
+                  <td>Right direction.</td>
+                </tr>
+            	<tr>
+                  <td><a href="http://berserk-games.com/knowledgebase/vector">Vector</a>
+</td>
+                  <td>up</td>
+                  <td>Up direction.</td>
+                </tr>
+           </table>	
+		</td>
+	</tr>
+</table>
+ 
+ 
+ 
+ 

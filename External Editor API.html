@@ -1,0 +1,136 @@
+This page describes how our <a href="http://berserk-games.com/knowledgebase/atom-editor-plugin/">Official Atom Plugin</a> API works so that you can write your own plugin for your text editor of choice if Atom does not suit your needs. The plugin communicates with Tabletop Simulator via two localhost TCP connections - one for each system acting as a server and the other as a client and vice versa. All communication messages are JSON.
+ 
+<h1>Tabletop Simulator as the Server</h1>
+TTS listens for incoming localhost TCP connections on port 39999.
+ 
+<h2>Get Lua Scripts</h2>
+Atom sends a JSON message with an ID of 0.
+<font face="monospace">
+ 
+ 
+<blockquote>{
+&nbsp;&nbsp;&nbsp;&nbsp;"messageID": 0
+}</blockquote>
+ 
+ 
+</font>
+<br />TTS sends back a JSON message with an ID of 0 and an array of the Lua Scripts.
+<font face="monospace">
+ 
+ 
+ 
+ 
+<blockquote>{
+&nbsp;&nbsp;&nbsp;&nbsp;"messageID": 0,
+&nbsp;&nbsp;&nbsp;&nbsp;"scriptStates": [
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "Global",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"guid": "-1",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"script": "..."
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "BlackJack Dealer's Deck",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"guid": "a0b2d5",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"script": "..."
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...
+&nbsp;&nbsp;&nbsp;&nbsp;]
+<br />}</blockquote>
+ 
+ 
+ 
+ 
+</font>
+<h2>Save & Play</h2>
+Atom sends a JSON message with an ID of 1 and an array of the Lua Scripts.
+<font face="monospace">
+ 
+ 
+<blockquote>{
+&nbsp;&nbsp;&nbsp;&nbsp;"messageID": 1,
+&nbsp;&nbsp;&nbsp;&nbsp;"scriptStates": [
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"guid": "-1",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"script": "..."
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"guid": "a0b2d5",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"script": "..."
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...
+&nbsp;&nbsp;&nbsp;&nbsp;]
+<br/>}</blockquote>
+ 
+ 
+</font>
+<h1>Atom as the Server</h1>
+Atom listens for incoming localhost TCP connections on port 39998.
+<h2>Pushing New Object</h2>
+When clicking on "Lua Editor" in the right click contextual menu in-game for an Object that doesn't have a Lua Script yet, it will try to open a new tab in Atom for this Object before falling back to the in-game editor if Atom is not running. TTS sends a JSON message with an ID of 0 and the new Object.
+<font face="monospace">
+ 
+ 
+<blockquote>{
+&nbsp;&nbsp;&nbsp;&nbsp;"messageID": 0,
+&nbsp;&nbsp;&nbsp;&nbsp;"scriptStates": [
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "Chess Pawn",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"guid": "db3f06",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"script": ""
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;]
+<br />}</blockquote>
+ 
+ 
+</font>
+<h2>Loading a New Game</h2>
+When loading a new game in TTS, TTS will automatically send all the Lua Scripts from the new game to Atom. TTS sends a JSON message with an ID of 1 and an array of the Lua Scripts.
+<font face="monospace">
+ 
+ 
+<blockquote>{
+&nbsp;&nbsp;&nbsp;&nbsp;"messageID": 1,
+&nbsp;&nbsp;&nbsp;&nbsp;"scriptStates": [
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "Global",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"guid": "-1",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"script": "..."
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "BlackJack Dealer's Deck",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"guid": "a0b2d5",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"script": "..."
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...
+&nbsp;&nbsp;&nbsp;&nbsp;]
+<br />}</blockquote>
+ 
+ 
+</font>
+<h2>Print/Debug Messages</h2>
+TTS sends all <a href="http://berserk-games.com/knowledgebase/api/#print"><font face="monospace">print()</font></a> messages to Atom to be displayed in Atom's console (<font face="monospace">ctrl + alt + i</font>). TTS sends a JSON message with an ID of 2 and the message.
+<font face="monospace">
+ 
+ 
+ 
+ 
+<blockquote>{
+&nbsp;&nbsp;&nbsp;&nbsp;"messageID": 2,
+&nbsp;&nbsp;&nbsp;&nbsp;"message": "Hit player! White"
+}</blockquote>
+ 
+ 
+</font>
+<h2>Error Messages</h2>
+TTS sends all Lua error messages to Atom to be displayed in Atom's console (<font face="monospace">ctrl + alt + i</font>). TTS sends a JSON message with an ID of 3 and the error message.
+<font face="monospace">
+<blockquote>{
+&nbsp;&nbsp;&nbsp;&nbsp;"messageID": 3,
+&nbsp;&nbsp;&nbsp;&nbsp;"error": "chunk_0:(36,4-8): unexpected symbol near 'deck'",
+&nbsp;&nbsp;&nbsp;&nbsp;"guid": "-1",
+&nbsp;&nbsp;&nbsp;&nbsp;"errorMessagePrefix": "Error in Global Script: "
+}</blockquote>
+ 
+ 
+</font>
+ 
