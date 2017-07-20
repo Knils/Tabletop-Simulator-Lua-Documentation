@@ -20,14 +20,12 @@ The static global Physics class allows you cast shapes to find a <a href="http:/
                   <th>Description</th>
 				</tr>
         		<tr>
-					<td><a href="http://berserk-games.com/knowledgebase/vector">Vector</a>
-</td>
+					<td><a href="http://berserk-games.com/knowledgebase/vector">Vector</a></td>
 					<td>origin</td>
                   <td>The start point of the cast.</td>
 				</tr>
 				<tr>
-					<td><a href="http://berserk-games.com/knowledgebase/vector">Vector</a>
-</td>
+					<td><a href="http://berserk-games.com/knowledgebase/vector">Vector</a></td>
 					<td>direction</td>
                   <td>The direction of the cast.</td>
 				</tr>				
@@ -37,22 +35,25 @@ The static global Physics class allows you cast shapes to find a <a href="http:/
                   <td>The type of cast. 1 = Ray, 2 = Sphere, 3 = Box.</td>
                   <tr>
         		<tr>
-					<td><a href="http://berserk-games.com/knowledgebase/vector">Vector</a>
-</td>
+					<td><a href="http://berserk-games.com/knowledgebase/vector">Vector</a></td>
 					<td>size</td>
-                  <td>The size of the cast. Only used for Sphere and Box.</td>
+                    <td>The size of the cast. Only used for Sphere and Box.</td>
 				</tr>
 				<tr>
-					<td><a href="http://berserk-games.com/knowledgebase/vector">Vector</a>
-</td>
+					<td><a href="http://berserk-games.com/knowledgebase/vector">Vector</a></td>
 					<td>orientation</td>
                   	<td>The rotation of the cast. Only used for Box.
 				</tr>        		
 				<tr>
 					<td>float</td>
 					<td>max_distance</td>
-                  <td>The distance the ray will cast. If not supplied it will be infinity.</td>                      
-				</tr>        		
+                    <td>The distance the ray will cast. If not supplied it will be infinity.</td>                      
+				</tr>  
+				<tr>
+					<td>bool</td>
+					<td>debug</td>
+                    <td>Visualize the cast with this debug bool set to true.</td>                      
+				</tr>   				
 			</table>
   <br/><h3>Hit</h3>
       <table>        		
@@ -62,14 +63,12 @@ The static global Physics class allows you cast shapes to find a <a href="http:/
                   <th>Description</th>
 				</tr>
 				<tr>
-					<td><a href="http://berserk-games.com/knowledgebase/vector">Vector</a>
-</td>
+					<td><a href="http://berserk-games.com/knowledgebase/vector">Vector</a></td>
 					<td>point</td>
                   <td>The position the cast impact.</td>
 				</tr>
 				<tr>
-					<td><a href="http://berserk-games.com/knowledgebase/vector">Vector</a>
-</td>
+					<td><a href="http://berserk-games.com/knowledgebase/vector">Vector</a></td>
 					<td>normal</td>
                   <td>The surface normal of the impact point.</td>
 				</tr>
@@ -79,8 +78,7 @@ The static global Physics class allows you cast shapes to find a <a href="http:/
                   <td>The distance between the cast origin and the impact point.</td>
                   <tr>        		
 				<tr>
-					<td><a href="http://berserk-games.com/knowledgebase/object">Object</a>
-</td>
+					<td><a href="http://berserk-games.com/knowledgebase/object">Object</a></td>
 					<td>hit_object</td>
                   <td>The object hit by the cast.</td>
 				</tr>     			    		

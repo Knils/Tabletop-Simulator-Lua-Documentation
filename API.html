@@ -4,6 +4,7 @@ The API is consistent for Global or <a href="http://berserk-games.com/knowledgeb
 <a href="http://berserk-games.com/knowledgebase/clock/">Clock</a>
 <a href="http://berserk-games.com/knowledgebase/counter/">Counter</a>
 <a href="http://berserk-games.com/knowledgebase/object/">Object</a>
+<a href="http://berserk-games.com/knowledgebase/assetbundle/">AssetBundle</a>
 <a href="http://berserk-games.com/knowledgebase/rpgfigurine/">RPGFigurine</a>
 <a href="http://berserk-games.com/knowledgebase/texttool/">TextTool</a>
 <br /><strong>Static Classes</strong>
@@ -108,13 +109,28 @@ The API is consistent for Global or <a href="http://berserk-games.com/knowledgeb
 	</tr>
 	<tr>
 		<td><font face="monospace">none</font></td>
+		<td><font face="monospace">onObjectLoopingEffect( <a href="http://berserk-games.com/knowledgebase/object">Object</a> loop_object, int index )</font></td>
+		<td><a class="anchor" name="onObjectLoopingEffect"></a>This function is called, if it exists in your script, when an <a href="http://berserk-games.com/knowledgebase/assetbundle/">AssetBundle</a> <a href="http://berserk-games.com/knowledgebase/object">Object</a> has it's looping effect start.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">none</font></td>
 		<td><font face="monospace">onObjectPickUp( string <a href="http://berserk-games.com/knowledgebase/player-colors/">player_color</a>, <a href="http://berserk-games.com/knowledgebase/object">Object</a> picked_up_object )</td>
 		<td><a class="anchor" name="onObjectPickUp"></a>This function is called, if it exists in your script, when an <a href="http://berserk-games.com/knowledgebase/object">Object</a> is picked up. The parameter <font face="monospace">player_color</font> is the color of the Player that picked up the <a href="http://berserk-games.com/knowledgebase/object">Object</a>.</td>
 	</tr>
 	<tr>
 		<td><font face="monospace">none</font></td>
+		<td><font face="monospace">onObjectRandomize( <a href="http://berserk-games.com/knowledgebase/object">Object</a> randomize_object, string <a href="http://berserk-games.com/knowledgebase/player-colors/">player_color</a> )</td>
+		<td><a class="anchor" name="onObjectRandomize"></a>This function is called, if it exists in your script, when an <a href="http://berserk-games.com/knowledgebase/object">Object</a> is randomized by a player. Ex, shuffling a deck or shaking a dice.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">none</font></td>
 		<td><font face="monospace">onObjectSpawn( <a href="http://berserk-games.com/knowledgebase/object">Object</a> spawn_object )</td>
 		<td><a class="anchor" name="onObjectSpawn"></a>This function is called, if it exists in your script, when an <a href="http://berserk-games.com/knowledgebase/object">Object</a> is spawned / created.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">none</font></td>
+		<td><font face="monospace">onObjectTriggerEffect( <a href="http://berserk-games.com/knowledgebase/object">Object</a> trigger_object, int index )</font></td>
+		<td><a class="anchor" name="onObjectTriggerEffect"></a>This function is called, if it exists in your script, when an <a href="http://berserk-games.com/knowledgebase/assetbundle/">AssetBundle</a> <a href="http://berserk-games.com/knowledgebase/object">Object</a> has it's trigger effect start.</td>
 	</tr>
 	<tr>
 		<td><font face="monospace">none</font></td>
