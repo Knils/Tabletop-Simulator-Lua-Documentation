@@ -15,6 +15,11 @@ All pieces in the game are an Object. Once you have a reference to an Object you
 		<td><a class="anchor" name="angular_drag"></a>The Object's angular drag.</td>
 	</tr>
 	<tr>
+		<td><font face="monospace"><a href="http://berserk-games.com/knowledgebase/assetbundle/">AssetBundle</a></font></td>
+		<td><font face="monospace">AssetBundle</font></td>
+		<td><a class="anchor" name="AssetBundle"></a>If this Object is a Custom AssetBundle, this member variable will be a reference to the <a href="http://berserk-games.com/knowledgebase/assetbundle/">AssetBundle</a> class attached to this Object, otherwise this value will be <font face="monospace">nil</font>. Read only.</td>
+	</tr>
+	<tr>
 		<td><font face="monospace">bool</font></td>
 		<td><font face="monospace">auto_raise</font></td>
 		<td><a class="anchor" name="auto_raise"></a>Should this Object automatically raise above other Objects when held?</td>
@@ -131,6 +136,11 @@ All pieces in the game are an Object. Once you have a reference to an Object you
 	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">use_hands</font></td>
+		<td><a class="anchor" name="use_hands"></a>Should this Object go into player hands?</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
 		<td><font face="monospace">use_snap_points</font></td>
 		<td><a class="anchor" name="use_snap_points"></a>Should this Object snap to snap points?</td>
 	</tr>
@@ -166,37 +176,37 @@ All pieces in the game are an Object. Once you have a reference to an Object you
 	</tr>	
 	<tr>
 		<td><font face="monospace">Table</font></td>
-		<td><font face="monospace">getTable( string table_name )</font></td>
+		<td><font face="monospace">getTable(string table_name)</font></td>
 		<td><a class="anchor" name="getTable"></a>Gets a Lua Table for this Object.</td>
 	</tr>
 	<tr>
 		<td><font face="monospace">variable</font></td>
-		<td><font face="monospace">getVar( string variable_name )</font></td>
+		<td><font face="monospace">getVar(string variable_name)</font></td>
 		<td><a class="anchor" name="getVar"></a>Gets a Lua variable for this Object. Will result in an error if you try to get a Table variable. Use getTable function for getting a Table from the Object.</td>
 	</tr>	
 	<tr>
 		<td><font face="monospace">bool</font></td>
-		<td><font face="monospace">setDescription( string description )</font></td>
+		<td><font face="monospace">setDescription(string description)</font></td>
 		<td><a class="anchor" name="setDescription"></a>Sets the description for this Object.</td>
 	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
-		<td><font face="monospace">setLuaScript( string script )</font></td>
+		<td><font face="monospace">setLuaScript(string script)</font></td>
 		<td><a class="anchor" name="setLuaScript"></a>Sets the Lua script for this Object. Only useful in very rare cases right when this object is spawned. Once the Lua interpreter reads the Lua script, it will not care about this again. Setting this variable after its been read will do nothing.</td>
 	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
-		<td><font face="monospace">setName( string nickname )</font></td>
+		<td><font face="monospace">setName(string nickname)</font></td>
 		<td><a class="anchor" name="setName"></a>Sets the nickname for this Object.</td>
 	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
-		<td><font face="monospace">setTable( string table_name, Table table )</font></td>
+		<td><font face="monospace">setTable(string table_name, Table table)</font></td>
 		<td><a class="anchor" name="setTable"></a>Sets a Lua Table for this Object.</td>
 	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
-		<td><font face="monospace">setVar( string variable_name, variable value )</font></td>
+		<td><font face="monospace">setVar(string variable_name, variable value)</font></td>
 		<td><a class="anchor" name="setVar"></a>Sets a Lua variable for this Object. Will result in an error if you try to set a Table variable. Use setTable function for setting a Table from the Object.</td>
 	</tr>	
 	</tr>
@@ -212,7 +222,7 @@ All pieces in the game are an Object. Once you have a reference to an Object you
 	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
-		<td><font face="monospace">addForce( <a href="http://berserk-games.com/knowledgebase/vector">Vector</a>, int force_type )</font></td>
+		<td><font face="monospace">addForce(<a href="http://berserk-games.com/knowledgebase/vector">Vector</a>, int force_type)</font></td>
 		<td>
 			<a class="anchor" name="addForce"></a>Adds a force vector to the Object. The force type is optional and defaults to Impulse.
 			<table>
@@ -241,7 +251,7 @@ All pieces in the game are an Object. Once you have a reference to an Object you
 	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
-		<td><font face="monospace">addTorque( <a href="http://berserk-games.com/knowledgebase/vector">Vector</a>, int force_type )</font></td>
+		<td><font face="monospace">addTorque(<a href="http://berserk-games.com/knowledgebase/vector">Vector</a>, int force_type)</font></td>
 		<td>
 			<a class="anchor" name="addTorque"></a>Adds a torque vector to the Object. The force type is optional and defaults to Impulse.
 			<table>
@@ -377,66 +387,66 @@ All pieces in the game are an Object. Once you have a reference to an Object you
 	</tr>
 	<tr>
 		<td><font face="monospace"><a href="http://berserk-games.com/knowledgebase/vector">Vector</a></font></td>
-		<td><font face="monospace">positionToLocal( <a href="http://berserk-games.com/knowledgebase/vector">Vector</a> )</font></td>
+		<td><font face="monospace">positionToLocal(<a href="http://berserk-games.com/knowledgebase/vector">Vector</a>)</font></td>
 		<td><a class="anchor" name="positionToLocal"></a>Converts the world position to a local position of this Object.</td>
 	</tr>
 	<tr>
 		<td><font face="monospace"><a href="http://berserk-games.com/knowledgebase/vector">Vector</a></font></td>
-		<td><font face="monospace">positionToWorld( <a href="http://berserk-games.com/knowledgebase/vector">Vector</a> )</font></td>
+		<td><font face="monospace">positionToWorld(<a href="http://berserk-games.com/knowledgebase/vector">Vector</a>)</font></td>
 		<td><a class="anchor" name="positionToWorld"></a>Converts the local position of this Object to a world position.</td>
 	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
-		<td><font face="monospace">rotate( <a href="http://berserk-games.com/knowledgebase/vector">Vector</a> )</font></td>
+		<td><font face="monospace">rotate(<a href="http://berserk-games.com/knowledgebase/vector">Vector</a>)</font></td>
 		<td><a class="anchor" name="rotate"></a>Smoothly rotates this Object with the given offset in degrees, i.e. rotate Object 90 degrees in the x direction from its current orientation.</td>
 	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
-		<td><font face="monospace">scale( <a href="http://berserk-games.com/knowledgebase/vector">Vector</a> )</font></td>
+		<td><font face="monospace">scale(<a href="http://berserk-games.com/knowledgebase/vector">Vector</a>)</font></td>
 		<td><a class="anchor" name="scale"></a>Scales this Object by the given amount.</td>
 	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
-		<td><font face="monospace">scale( float scale )</font></td>
+		<td><font face="monospace">scale(float scale)</font></td>
 		<td><a class="anchor" name="scaleAllAxes"></a>Scales this Object in all axes by the given amount.</td>
 	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
-		<td><font face="monospace">setAngularVelocity( <a href="http://berserk-games.com/knowledgebase/vector">Vector</a> )</font></td>
+		<td><font face="monospace">setAngularVelocity(<a href="http://berserk-games.com/knowledgebase/vector">Vector</a>)</font></td>
 		<td><a class="anchor" name="setAngularVelocity"></a>Sets the angular velocity of the object.</td>
 	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
-		<td><font face="monospace">setPosition( <a href="http://berserk-games.com/knowledgebase/vector">Vector</a> )</font></td>
+		<td><font face="monospace">setPosition(<a href="http://berserk-games.com/knowledgebase/vector">Vector</a>)</font></td>
 		<td><a class="anchor" name="setPosition"></a>Sets the world space position for this Object.</td>
 	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
-		<td><font face="monospace">setPositionSmooth( <a href="http://berserk-games.com/knowledgebase/vector">Vector</a>, bool Collide = false, bool Fast = false )</font></td>
+		<td><font face="monospace">setPositionSmooth(<a href="http://berserk-games.com/knowledgebase/vector">Vector</a>, bool Collide = false, bool Fast = false)</font></td>
 		<td><a class="anchor" name="setPositionSmooth"></a>Smoothly moves this Object from its current position to a given world space position. If there is a collision the object will be instantly teleported to the location.</td>
 	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
-		<td><font face="monospace">setRotation( <a href="http://berserk-games.com/knowledgebase/vector">Vector</a> )</font></td>
+		<td><font face="monospace">setRotation(<a href="http://berserk-games.com/knowledgebase/vector">Vector</a>)</font></td>
 		<td><a class="anchor" name="setRotation"></a>Sets the rotation of this Object in degrees.</td>
 	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
-		<td><font face="monospace">setRotationSmooth( <a href="http://berserk-games.com/knowledgebase/vector">Vector</a>, bool Collide = false, bool Fast = false )</font></td>
+		<td><font face="monospace">setRotationSmooth(<a href="http://berserk-games.com/knowledgebase/vector">Vector</a>, bool Collide = false, bool Fast = false)</font></td>
 		<td><a class="anchor" name="setRotationSmooth"></a>Smoothly rotates this Object to the given orientation in degrees.</td>
 	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
-		<td><font face="monospace">setScale( <a href="http://berserk-games.com/knowledgebase/vector">Vector</a> )</font></td>
+		<td><font face="monospace">setScale(<a href="http://berserk-games.com/knowledgebase/vector">Vector</a>)</font></td>
 		<td><a class="anchor" name="setScale"></a>Sets the scale for this Object.</td>
 	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
-		<td><font face="monospace">setVelocity( <a href="http://berserk-games.com/knowledgebase/vector">Vector</a> )</font></td>
+		<td><font face="monospace">setVelocity(<a href="http://berserk-games.com/knowledgebase/vector">Vector</a>)</font></td>
 		<td><a class="anchor" name="setVelocity"></a>Sets the velocity of the object.</td>
 	<tr>
 		<td><font face="monospace">bool</font></td>
-		<td><font face="monospace">translate( <a href="http://berserk-games.com/knowledgebase/vector">Vector</a> )</font></td>
+		<td><font face="monospace">translate(<a href="http://berserk-games.com/knowledgebase/vector">Vector</a>)</font></td>
 		<td><a class="anchor" name="translate"></a>Smoothly moves this Object from its current position to a given offset.</td>
 	</tr>
 </table>
@@ -456,7 +466,7 @@ All pieces in the game are an Object. Once you have a reference to an Object you
 	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
-		<td><font face="monospace">setColorTint( <a href="http://berserk-games.com/knowledgebase/color">Color</a> )</font></td>
+		<td><font face="monospace">setColorTint(<a href="http://berserk-games.com/knowledgebase/color">Color</a>)</font></td>
 		<td><a class="anchor" name="setColorTint"></a>Sets the color tint for this Object.</td>
 	</tr>
 </table>
@@ -476,7 +486,7 @@ All pieces in the game are an Object. Once you have a reference to an Object you
 	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
-		<td><font face="monospace">createButton( Table parameters )</font></td>
+		<td><font face="monospace">createButton(Table parameters)</font></td>
 		<td>
 			<a class="anchor" name="createButton"></a>Creates a 3D UI button on this Object.
 			<br />Parameters Table:
@@ -499,7 +509,7 @@ All pieces in the game are an Object. Once you have a reference to an Object you
 	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
-		<td><font face="monospace">editButton( Table parameters )</font></td>
+		<td><font face="monospace">editButton(Table parameters)</font></td>
 		<td>
 			<a class="anchor" name="editButton"></a>Edits a 3D UI button on this Object based on its index.
 			<br />Parameter Table:
@@ -544,7 +554,7 @@ table.font_color = <a href="http://berserk-games.com/knowledgebase/color">Color<
 	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
-		<td><font face="monospace">removeButton( int index )</font></td>
+		<td><font face="monospace">removeButton(int index)</font></td>
 		<td><a class="anchor" name="removeButton"></a>Removes a 3D UI button from this Object by its index.</td>
 	</tr>
 </table>
@@ -559,12 +569,12 @@ table.font_color = <a href="http://berserk-games.com/knowledgebase/color">Color<
 	</tr>
 	<tr>
 		<td><font face="monospace">variable</font></td>
-		<td><font face="monospace">call( string function_name, Table function_parameters )</font></td>
+		<td><font face="monospace">call(string function_name, Table function_parameters)</font></td>
 		<td><a class="anchor" name="call"></a>Calls a Lua function owned by this Object and passes an optional Table as parameters to the function.</td>
 	</tr>
 	<tr>
 		<td><font face="monospace">Object</font></td>
-		<td><font face="monospace">clone( Table parameters )</font></td>
+		<td><font face="monospace">clone(Table parameters)</font></td>
 		<td>
 			<a class="anchor" name="clone"></a>Copies and pastes this Object. Returns a reference to the newly spawned Object.
 			<br />Parameters Table:
@@ -582,17 +592,12 @@ table.font_color = <a href="http://berserk-games.com/knowledgebase/color">Color<
 	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
-		<td><font face="monospace">dealToAll( int num_cards )</font></td>
-		<td><a class="anchor" name="dealToAll"></a>Deals a number of Cards from a this Deck to all seated players.</td>
-	</tr>
-	<tr>
-		<td><font face="monospace">bool</font></td>
-		<td><font face="monospace">dealToColor( int num_cards, string <a href="http://berserk-games.com/knowledgebase/player-colors/">player_color</a> )</font></td>
-		<td><a class="anchor" name="dealToColor"></a>Deals a number of Cards from this Deck to a specific player.</td>
-	</tr>
+		<td><font face="monospace">deal(int number, string <a href="http://berserk-games.com/knowledgebase/player-colors/">player_color</a> <font color="#3d8b40">--Optional.</font>, int hand_index <font color="#3d8b40">--Optional.</font>)</font></td>
+		<td><a class="anchor" name="deal"></a>Deals object to player's hand. Will deal from deck, bag, infinite bag, chips, and individual objects to hands. If no <a href="http://berserk-games.com/knowledgebase/player-colors/">player_color</a> supplied it will deal to all seated players.</td>
+	</tr>	
 	<tr>		
 		<td><font face="monospace">Object</font></td>
-		<td><font face="monospace">dealToColorWithOffset( <a href="http://berserk-games.com/knowledgebase/vector">Vector</a>, bool flip, string <a href="http://berserk-games.com/knowledgebase/player-colors/">player_color</a> )</font></td>
+		<td><font face="monospace">dealToColorWithOffset(<a href="http://berserk-games.com/knowledgebase/vector">Vector</a>, bool flip, string <a href="http://berserk-games.com/knowledgebase/player-colors/">player_color</a>)</font></td>
 		<td><a class="anchor" name="dealToColorWithOffset"></a>Deals a Card to a player with an offset from their hand. Set the offset to 0 to deal in their hand. Returns a reference to the dealt Card.</td>
 	</tr>
 	<tr>
@@ -755,6 +760,11 @@ table.font_color = <a href="http://berserk-games.com/knowledgebase/color">Color<
 		<td><a class="anchor" name="getQuantity"></a>Returns the number of Objects in a stack. Will return -1 if the object is not a stack.</td>
 	</tr>
 	<tr>
+		<td><font face="monospace">Table</font></td>
+		<td><font face="monospace">getRotationValues()</font></td>
+		<td><a class="anchor" name="getRotationValues"></a>Returns the rotation values for this Object just like the Gizmo -> Rotation Value tool. List of Tables with Keys: "value" and "rotation".</td>
+	</tr>
+	<tr>
 		<td><font face="monospace">int</font></td>
 		<td><font face="monospace">getStateId()</font></td>
 		<td><a class="anchor" name="getStateId"></a>Returns id of the active state for this object. Will return -1 if the object has no states.</td>
@@ -799,9 +809,9 @@ table.font_color = <a href="http://berserk-games.com/knowledgebase/color">Color<
 	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
-		<td><font face="monospace">highlightOn( {float r, float g, float b }, float duration <font color="#3d8b40">--Optional.</font><br />
- )</font></td>
-		<td><a class="anchor" name="highlightOn"></a>Highlight this object with color for an optional duration. Color values are between 0 and 1.</td>
+		<td><font face="monospace">highlightOn(<a href="http://berserk-games.com/knowledgebase/color">Color</a>, float duration <font color="#3d8b40">--Optional.</font><br />
+)</font></td>
+		<td><a class="anchor" name="highlightOn"></a>Highlight this object with <a href="http://berserk-games.com/knowledgebase/color">Color</a> for an optional duration.</td>
 	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
@@ -810,7 +820,7 @@ table.font_color = <a href="http://berserk-games.com/knowledgebase/color">Color<
 	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
-		<td><font face="monospace">putObject( Object put_object )</font></td>
+		<td><font face="monospace">putObject(Object put_object)</font></td>
 		<td><a class="anchor" name="putObject"></a>Add this object to the current object. Works for stacking chips, decks, and bags.</td>
 	</tr>
 	<tr>
@@ -835,22 +845,27 @@ table.font_color = <a href="http://berserk-games.com/knowledgebase/color">Color<
 	</tr>
 	<tr>		
 		<td><font face="monospace">bool</font></td>
-		<td><font face="monospace">setCustomObject( Table parameters )</font></td>
+		<td><font face="monospace">setCustomObject(Table parameters)</font></td>
 		<td><a class="anchor" name="setCustomObject"></a>Used to create a Custom Object. All custom types except for Custom Decks are supported. See <a href="http://berserk-games.com/knowledgebase/spawnable-objects/#Custom_Objects">here</a> for information about the parameters for each type of Custom Object.</td>
 	</tr>
 <tr>		
 		<td><font face="monospace">bool</font></td>
-		<td><font face="monospace">setLock( bool lock )</font></td>
+		<td><font face="monospace">setLock(bool lock)</font></td>
 		<td><a class="anchor" name="setLock"></a>Set the lock status of an object.</td>
 	</tr>
 	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">setRotationValues(Table rotation_values)</font></td>
+		<td><a class="anchor" name="setRotationValues"></a>Sets the rotation values for this Object just like the Gizmo -> Rotation Value tool. List of Tables with Keys: "value" and "rotation".</td>
+	</tr>
+	<tr>
 		<td><font face="monospace">Object</font></td>
-		<td><font face="monospace">setState( int state )</font></td>
+		<td><font face="monospace">setState(int state)</font></td>
 		<td><a class="anchor" name="setState"></a>Sets the current State for this Object if it has multiple States attached to it and returns a reference to the new State. The old reference will be destroyed, so update your reference to this Object with the return value of the new State. Returns <font face="monospace">nil</font> if this Object does not have multiple states attached to it.</td>
 	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
-		<td><font face="monospace">setValue( variable value )</font></td>
+		<td><font face="monospace">setValue(variable value)</font></td>
 		<td>
 			<a class="anchor" name="setValue"></a>Sets the value for this Object.
 			<table>
@@ -893,7 +908,7 @@ table.font_color = <a href="http://berserk-games.com/knowledgebase/color">Color<
 	</tr>
 	<tr>		
 		<td><font face="monospace">Object</font></td>
-		<td><font face="monospace">takeObject( Table parameters )</font></td>
+		<td><font face="monospace">takeObject(Table parameters)</font></td>
 		<td><a class="anchor" name="takeObject"></a>Takes an Object from this container (Loot Bag, Deck, and Infinite Bag), moves, and rotates it to the specified position and rotation. Returns a reference to the taken Object. Since executing the Lua scripts on the taken object and other initialization takes a few frames, any operations that need to be performed on this object immediately after it is taken from the container should be done in the callback function. The callback prevents needing to use a coroutine and yielding/waiting multiple frames. All of the parameters are optional and defers to default values if any of the lines are not included. If you want all of the default values, just pass in an empty table.
 			<br />Parameters Table:
 			<br /><font face="monospace">
