@@ -46,7 +46,7 @@ function onLoad()
 end
 </font></blockquote>
 <br />This block of code can be added to the Global Script or any of the Object scripts. It will be called from each Script that you add it to. The <font face="monospace">print()</font> function prints a message into the Chat window of the Host. The <font face="monospace">print()</font> function should be used for debugging purposes.
-<br /><strong>Note</strong>: We provide access to the <font face="monospace">update()</font> event; however, please be cautious when using this function (try to avoid using it altogether) because this function is called once per frame for every frame and can really impact performance if a computationally heavy operation happens (the frame will be delayed from rendering until this function ends). There are legitimate uses for the <font face="monospace">update()</font> function so we provide it.
+<br /><strong>Note</strong>: We provide access to the <font face="monospace">onUpdate()</font> event; however, please be cautious when using this function (try to avoid using it altogether) because this function is called once per frame for every frame and can really impact performance if a computationally heavy operation happens (the frame will be delayed from rendering until this function ends). There are legitimate uses for the <font face="monospace">onUpdate()</font> function so we provide it.
  
 <br />Other Scripting Articles:<br />
 <a href="http://berserk-games.com/knowledgebase/api/">API</a><br />

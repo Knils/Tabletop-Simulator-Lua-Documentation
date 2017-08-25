@@ -486,6 +486,11 @@ All pieces in the game are an Object. Once you have a reference to an Object you
 	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">clearInputs()</font></td>
+		<td><a class="anchor" name="clearInputs"></a>Clears all 3D UI inputs on this Object.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
 		<td><font face="monospace">createButton(Table parameters)</font></td>
 		<td>
 			<a class="anchor" name="createButton"></a>Creates a 3D UI button on this Object.
@@ -503,8 +508,37 @@ All pieces in the game are an Object. Once you have a reference to an Object you
 				button_parameters.font_size = int font_size <font color="#3d8b40">--Optional</font><br />
 				button_parameters.color = <a href="http://berserk-games.com/knowledgebase/color">Color</a> <font color="#3d8b40">--Optional</font><br />
 				button_parameters.font_color = <a href="http://berserk-games.com/knowledgebase/color">Color</a> <font color="#3d8b40">--Optional</font><br />
+				button_parameters.tooltip = string tooltip <font color="#3d8b40">--Optional</font><br />
+				button_parameters.alignment = int (1 = Automatic, 2 = Left, 3 = Center, 4 = Right, 5 = Justified) <font color="#3d8b40">--Optional</font><br />
 			</font><br />
 			A <font face="monospace">nil</font> value for funtion_owner means the function lives on the Global script. The click_function runs with optional parameters: click_function(Object objectButtonClicked, string playerColorClicked).
+		</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">createInput(Table parameters)</font></td>
+		<td>
+			<a class="anchor" name="createInput"></a>Creates a 3D UI input on this Object.
+			<br />Parameters Table:
+			<br /><font face="monospace">
+				local input_parameters = {}<br />
+				input_parameters.input_function = string function_name<br />
+				input_parameters.function_owner = Object function_owner<br />				
+				input_parameters.label = string button_label <font color="#3d8b40">--Optional</font><br />
+				input_parameters.position = <a href="http://berserk-games.com/knowledgebase/vector">Vector</a> <font color="#3d8b40">--Optional</font><br />
+				input_parameters.rotation = <a href="http://berserk-games.com/knowledgebase/vector">Vector</a> <font color="#3d8b40">--Optional</font><br />
+				input_parameters.scale = <a href="http://berserk-games.com/knowledgebase/vector">Vector</a> <font color="#3d8b40">--Optional</font><br />
+				input_parameters.width = int width <font color="#3d8b40">--Optional</font><br />
+				input_parameters.height = int height <font color="#3d8b40">--Optional</font><br />
+				input_parameters.font_size = int font_size <font color="#3d8b40">--Optional</font><br />
+				input_parameters.color = <a href="http://berserk-games.com/knowledgebase/color">Color</a> <font color="#3d8b40">--Optional</font><br />
+				input_parameters.font_color = <a href="http://berserk-games.com/knowledgebase/color">Color</a> <font color="#3d8b40">--Optional</font><br />
+				input_parameters.tooltip = string tooltip <font color="#3d8b40">--Optional</font><br />
+				input_parameters.alignment = int (1 = Automatic, 2 = Left, 3 = Center, 4 = Right, 5 = Justified) <font color="#3d8b40">--Optional</font><br />
+				input_parameters.value = string input_value <font color="#3d8b40">--Optional</font><br />	
+				input_parameters.validation = int (1 = None, 2 = Integer, 3 = Float, 4 = Alphanumeric, 5 = Username, 6 = Name) <font color="#3d8b40">--Optional</font><br />
+			</font><br />
+			A <font face="monospace">nil</font> value for funtion_owner means the function lives on the Global script. The click_function runs with optional parameters: input_function(Object objectButtonClicked, string playerColorClicked, string input_value, bool selected).
 		</td>
 	</tr>
 	<tr>
@@ -527,6 +561,35 @@ All pieces in the game are an Object. Once you have a reference to an Object you
 				button_parameters.font_size = int font_size <font color="#3d8b40">--Optional</font><br />
 				button_parameters.color = <a href="http://berserk-games.com/knowledgebase/color">Color</a> <font color="#3d8b40">--Optional</font><br />
 				button_parameters.font_color = <a href="http://berserk-games.com/knowledgebase/color">Color</a> <font color="#3d8b40">--Optional</font><br />
+				button_parameters.tooltip = string tooltip <font color="#3d8b40">--Optional</font><br />
+				button_parameters.alignment = int (1 = Automatic, 2 = Left, 3 = Center, 4 = Right, 5 = Justified) <font color="#3d8b40">--Optional</font><br />
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">editInput(Table parameters)</font></td>
+		<td>
+			<a class="anchor" name="editInput"></a>Edits a 3D UI input on this Object based on its index.
+			<br />Parameter Table:
+			<br /><font face="monospace">
+				local input_parameters = {}<br />
+				input_parameters.index = int index<br />
+				input_parameters.input_function = string function_name <font color="#3d8b40">--Optional</font><br />
+				input_parameters.function_owner = Object function_owner <font color="#3d8b40">--Optional</font><br />
+				input_parameters.label = string button_label <font color="#3d8b40">--Optional</font><br />
+				input_parameters.position = <a href="http://berserk-games.com/knowledgebase/vector">Vector</a> <font color="#3d8b40">--Optional</font><br />
+				input_parameters.rotation = <a href="http://berserk-games.com/knowledgebase/vector">Vector</a> <font color="#3d8b40">--Optional</font><br />
+				input_parameters.scale = <a href="http://berserk-games.com/knowledgebase/vector">Vector</a> <font color="#3d8b40">--Optional</font><br />
+				input_parameters.width = int width <font color="#3d8b40">--Optional</font><br />
+				input_parameters.height = int height <font color="#3d8b40">--Optional</font><br />
+				input_parameters.font_size = int font_size <font color="#3d8b40">--Optional</font><br />
+				input_parameters.color = <a href="http://berserk-games.com/knowledgebase/color">Color</a> <font color="#3d8b40">--Optional</font><br />
+				input_parameters.font_color = <a href="http://berserk-games.com/knowledgebase/color">Color</a> <font color="#3d8b40">--Optional</font><br />
+				input_parameters.tooltip = string tooltip <font color="#3d8b40">--Optional</font><br />
+				input_parameters.alignment = int (1 = Automatic, 2 = Left, 3 = Center, 4 = Right, 5 = Justified) <font color="#3d8b40">--Optional</font><br />
+				input_parameters.value = string input_value <font color="#3d8b40">--Optional</font><br />	
+				input_parameters.validation = int (1 = None, 2 = Integer, 3 = Float, 4 = Alphanumeric, 5 = Username, 6 = Name) <font color="#3d8b40">--Optional</font><br />
 			</font>
 		</td>
 	</tr>
@@ -547,8 +610,36 @@ All pieces in the game are an Object. Once you have a reference to an Object you
 				table.width = int button_width<br />
 				table.height = int button_height<br />
 				table.font_size = int font_size<br />
-table.color = <a href="http://berserk-games.com/knowledgebase/color">Color</a><br />
-table.font_color = <a href="http://berserk-games.com/knowledgebase/color">Color</a><br />
+				table.color = <a href="http://berserk-games.com/knowledgebase/color">Color</a><br />
+				table.font_color = <a href="http://berserk-games.com/knowledgebase/color">Color</a><br />
+				table.tooltip = string tooltip
+				table.alignment = int (1 = Automatic, 2 = Left, 3 = Center, 4 = Right, 5 = Justified)				
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">Table</font></td>
+		<td><font face="monospace">getInputs()</font></td>
+		<td>
+			<a class="anchor" name="getInputs"></a>Gets a list of all the 3D UI inputs on this Object.
+			<br />Returned Table:
+			<br /><font face="monospace">
+				table.index = int index <font color="#3d8b40">--The index of this button as a child of the Object. Used for editing or removing this specific button.</font><br />
+				table.click_function = string click_function<br />
+				table.function_owner = Object function_owner<br />
+				table.label = string label_text<br />
+				table.position = Table position <font color="#3d8b40">--{x, y, z}</font><br />
+				table.rotation = Table rotation <font color="#3d8b40">--{x, y, z}</font><br />
+				table.scale = Table scale<font color="#3d8b40">--{x, y, z}</font><br />
+				table.width = int button_width<br />
+				table.height = int button_height<br />
+				table.font_size = int font_size<br />
+				table.color = <a href="http://berserk-games.com/knowledgebase/color">Color</a><br />
+				table.font_color = <a href="http://berserk-games.com/knowledgebase/color">Color</a><br />
+				table.tooltip = string tooltip
+				table.alignment = int (1 = Automatic, 2 = Left, 3 = Center, 4 = Right, 5 = Justified)
+				table.value = string input_value
+				table.validation = int (1 = None, 2 = Integer, 3 = Float, 4 = Alphanumeric, 5 = Username, 6 = Name)
 			</font>
 		</td>
 	</tr>
@@ -556,6 +647,11 @@ table.font_color = <a href="http://berserk-games.com/knowledgebase/color">Color<
 		<td><font face="monospace">bool</font></td>
 		<td><font face="monospace">removeButton(int index)</font></td>
 		<td><a class="anchor" name="removeButton"></a>Removes a 3D UI button from this Object by its index.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">removeInput(int index)</font></td>
+		<td><a class="anchor" name="removeInput"></a>Removes a 3D UI input from this Object by its index.</td>
 	</tr>
 </table>
  

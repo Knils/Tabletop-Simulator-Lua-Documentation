@@ -20,13 +20,11 @@ The API is consistent for Global or <a href="http://berserk-games.com/knowledgeb
 		<th class="table_column_rv">Return Value</th>
 		<th class="table_column_fn">Function Name</th>
 		<th>Description</th>
-	</tr>
+	</tr>	
 	<tr>
 		<td><font face="monospace">none</font></td>
-		<td><font face="monospace">fixedUpdate()</font></td>
-		<td>
-			<a class="anchor" name="fixedUpdate"></a>This function is called, if it exists in your script, every physics tick which happens 90 times a second. This is a frame independent update() and just like update() it's an expensive event that should be used sparingly.
-		</td>
+		<td><font face="monospace">onChat(string message, <a href="http://berserk-games.com/knowledgebase/player/">Player</a>)</font></td>
+		<td><a class="anchor" name="onChat"></a>This function is called, if it exists in your script, when a player chats. Return false in this event to block the message.</td>
 	</tr>
 	<tr>
 		<td><font face="monospace">none</font></td>
@@ -76,6 +74,11 @@ The API is consistent for Global or <a href="http://berserk-games.com/knowledgeb
 		<td><font face="monospace">none</font></td>
 		<td><font face="monospace">onDrop(string <a href="http://berserk-games.com/knowledgebase/player-colors/">player_color</a>)</font></td>
 		<td><a class="anchor" name="onDrop"></a>This function is called, if it exists in your script, when this <a href="http://berserk-games.com/knowledgebase/object">Object</a> is dropped. The parameter <font face="monospace">player_color</font> is the color of the Player that dropped the <a href="http://berserk-games.com/knowledgebase/object">Object</a>. The Global Script does not have an <font face="monospace">onDrop()</font> event since it does not have a physical representation that can be dropped.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">none</font></td>
+		<td><font face="monospace">onFixedUpdate()</font></td>
+		<td><a class="anchor" name="onFixedUpdate"></a>This function is called, if it exists in your script, every physics tick which happens 90 times a second. This is a frame independent onUpdate() and just like onUpdate() it's an expensive event that should be used sparingly.</td>
 	</tr>
 	<tr>
 		<td><font face="monospace">none</font></td>
@@ -169,8 +172,8 @@ The API is consistent for Global or <a href="http://berserk-games.com/knowledgeb
 	</tr>
 	<tr>
 		<td><font face="monospace">none</font></td>
-		<td><font face="monospace">update()</font></td>
-		<td><a class="anchor" name="update"></a>The <font face="monospace">update()</font> function is called, if it exists in your script, once every frame. Typically you don't want to add too much code in this function because it can impact game performance. It's probably best to avoid using this function if possible.</td>
+		<td><font face="monospace">onUpdate()</font></td>
+		<td><a class="anchor" name="onUpdate"></a>This function is called, if it exists in your script, once every frame. Typically you don't want to add too much code in this function because it can impact game performance.</td>
 	</tr>
 </table>
  
