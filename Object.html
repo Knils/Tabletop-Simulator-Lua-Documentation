@@ -511,7 +511,8 @@ All pieces in the game are an Object. Once you have a reference to an Object you
 				button_parameters.tooltip = string tooltip <font color="#3d8b40">--Optional</font><br />
 				button_parameters.alignment = int (1 = Automatic, 2 = Left, 3 = Center, 4 = Right, 5 = Justified) <font color="#3d8b40">--Optional</font><br />
 			</font><br />
-			A <font face="monospace">nil</font> value for funtion_owner means the function lives on the Global script. The click_function runs with optional parameters: click_function(Object objectButtonClicked, string playerColorClicked).
+			A <font face="monospace">nil</font> value for funtion_owner means the function lives on the Global script.<br /> 
+			The click_function runs with optional parameters: click_function(Object objectButtonClicked, string playerColorClicked).
 		</td>
 	</tr>
 	<tr>
@@ -537,8 +538,10 @@ All pieces in the game are an Object. Once you have a reference to an Object you
 				input_parameters.alignment = int (1 = Automatic, 2 = Left, 3 = Center, 4 = Right, 5 = Justified) <font color="#3d8b40">--Optional</font><br />
 				input_parameters.value = string input_value <font color="#3d8b40">--Optional</font><br />	
 				input_parameters.validation = int (1 = None, 2 = Integer, 3 = Float, 4 = Alphanumeric, 5 = Username, 6 = Name) <font color="#3d8b40">--Optional</font><br />
+				input_parameters.tab = int (1 = None, 2 = Select Next, 3 = Indent) <font color="#3d8b40">--Optional</font><br />
 			</font><br />
-			A <font face="monospace">nil</font> value for funtion_owner means the function lives on the Global script. The click_function runs with optional parameters: input_function(Object objectButtonClicked, string playerColorClicked, string input_value, bool selected).
+			A <font face="monospace">nil</font> value for funtion_owner means the function lives on the Global script. <br />
+			The input_function runs with optional parameters: input_function(Object objectInputTyped, string playerColorTyped, string input_value, bool selected). Can return string in Callback to overwrite input value. Callback fires every time the input is typed in or deselected.
 		</td>
 	</tr>
 	<tr>
@@ -590,6 +593,7 @@ All pieces in the game are an Object. Once you have a reference to an Object you
 				input_parameters.alignment = int (1 = Automatic, 2 = Left, 3 = Center, 4 = Right, 5 = Justified) <font color="#3d8b40">--Optional</font><br />
 				input_parameters.value = string input_value <font color="#3d8b40">--Optional</font><br />	
 				input_parameters.validation = int (1 = None, 2 = Integer, 3 = Float, 4 = Alphanumeric, 5 = Username, 6 = Name) <font color="#3d8b40">--Optional</font><br />
+				input_parameters.tab = int (1 = None, 2 = Select Next, 3 = Indent) <font color="#3d8b40">--Optional</font><br />
 			</font>
 		</td>
 	</tr>
@@ -889,8 +893,12 @@ All pieces in the game are an Object. Once you have a reference to an Object you
 					<td>Returns the value.</td>
 				</tr>
 				<tr>
-					<td>Dice</td>
-					<td>Returns the face-up value.</td>
+					<td>Rotation Value</td>
+					<td>Returns the face-up value index.</td>
+				</tr>				
+				<tr>
+					<td>Hidden Zone</td>
+					<td>Return the <a href="http://berserk-games.com/knowledgebase/player-colors/">player_color</a> of the zone.</td>
 				</tr>
 				<tr>
 					<td>Poker Chip</td>
@@ -978,8 +986,12 @@ All pieces in the game are an Object. Once you have a reference to an Object you
 					<td>Sets the value.</td>
 				</tr>
 				<tr>
-					<td>Dice</td>
-					<td>Sets the face-up value.</td>
+					<td>Rotation Value</td>
+					<td>Sets the face-up value index.</td>
+				</tr>
+				<tr>
+					<td>Hidden Zone</td>
+					<td>Sets the <a href="http://berserk-games.com/knowledgebase/player-colors/">player_color</a> of the zone.</td>
 				</tr>
 				<tr>
 					<td>Tablet</td>
