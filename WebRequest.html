@@ -1,0 +1,75 @@
+The static global WebRequest class allows you to interact with the web with get, post, and put. For example, <font face="monospace">WebRequest.get("https://www.google.com/", self, "webRequestCallback")</font>.
+<a class="anchor" name="Member Variables"></a>
+<table width="100%">
+	<caption><strong><h3>Member Variables</h3></strong></caption>
+	<tr>
+		<th class="table_column_rv">Type</th>
+		<th class="table_column_fn">Variable Name</th>		
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">download_progress</font></td>
+		<td><a class="anchor" name="is_error"></a>If this is downloading what percent is it at (0-1 value).</td>
+	</tr>
+	</tr>
+		<tr>
+		<td><font face="monospace">string</font></td>
+		<td><font face="monospace">error</font></td>
+		<td><a class="anchor" name="error"></a>Error text from the WebRequest.</td>
+	</tr> 
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">is_error</font></td>
+		<td><a class="anchor" name="is_error"></a>Is their an error with this WebRequest?</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">is_done</font></td>
+		<td><a class="anchor" name="is_done"></a>Is the WebRequest finished?</td>
+	</tr>
+		<tr>
+		<td><font face="monospace">string</font></td>
+		<td><font face="monospace">text</font></td>
+		<td><a class="anchor" name="text"></a>The returned data in text from the WebRequest.</td>
+	</tr> 	
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">upload_progress</font></td>
+		<td><a class="anchor" name="is_error"></a>If this is uploading what percent is it at (0-1 value).</td>
+	</tr>
+	</tr>
+		<tr>
+		<td><font face="monospace">string</font></td>
+		<td><font face="monospace">url</font></td>
+		<td><a class="anchor" name="url"></a>The url for this WebRequest.</td>
+	</tr> 
+</table>
+ 
+<a class="anchor" name="Functions"></a>
+<table width="100%">
+	<caption><strong><h3>Functions</h3></strong></caption>
+	<tr>
+		<th class="table_column_rv">Return Value</th>
+		<th class="table_column_fn">Function Name</th>
+		<th>Description</th>
+	</tr>	
+  	<tr>
+		<td><font face="monospace">WebRequest</font></td>
+		<td><font face="monospace">get(string url, <a href="http://berserk-games.com/knowledgebase/object">Object</a> callback_owner, string callback)</font></td>
+		<td><a class="anchor" name="get"></a>Get data in text from the url. Callback function is supplied the WebRequest.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">WebRequest</font></td>
+		<td><font face="monospace">post(string url, Table form, <a href="http://berserk-games.com/knowledgebase/object">Object</a> callback_owner, string callback)</font></td>
+		<td><a class="anchor" name="post"></a>Post the form to the url. Callback function is supplied the WebRequest.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">WebRequest</font></td>
+		<td><font face="monospace">put(string url, string data, <a href="http://berserk-games.com/knowledgebase/object">Object</a> callback_owner, string callback)</font></td>
+		<td><a class="anchor" name="put"></a>Put the data to the url. Callback function is supplied the WebRequest.</td>
+	</tr>
+</table>
+ 
+ 
+ 

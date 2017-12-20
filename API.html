@@ -77,6 +77,11 @@ The API is consistent for Global or <a href="http://berserk-games.com/knowledgeb
 	</tr>
 	<tr>
 		<td><font face="monospace">none</font></td>
+		<td><font face="monospace">onExternalMessage(Table)</font></td>
+		<td><a class="anchor" name="onExternalMessage"></a>The <font face="monospace">onExternalMessage()</font> function is called, if it exists in your script, when your external script editor like Atom sends a message back to the game. This is for custom editor functionality.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">none</font></td>
 		<td><font face="monospace">onFixedUpdate()</font></td>
 		<td><a class="anchor" name="onFixedUpdate"></a>This function is called, if it exists in your script, every physics tick which happens 90 times a second. This is a frame independent onUpdate() and just like onUpdate() it's an expensive event that should be used sparingly.</td>
 	</tr>
@@ -318,6 +323,11 @@ The API is consistent for Global or <a href="http://berserk-games.com/knowledgeb
 	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">sendExternalMessage(Table)</font></td>
+		<td><a class="anchor" name="sendExternalMessage"></a>Sends the table to your external script editor, most likely Atom. This is for custom editor functionality.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
 		<td><font face="monospace">setNotes(string notes)</font></td>
 		<td><a class="anchor" name="setNotes"></a>Sets the current on-screen notes. BBCode is allowed for styling.</td>
 	</tr>
@@ -337,6 +347,7 @@ The API is consistent for Global or <a href="http://berserk-games.com/knowledgeb
 				params.callback_owner = <a href="http://berserk-games.com/knowledgebase/object">Object</a> callback_owner <font color="#3d8b40">--Optional. Defaults to the Global Script.</font><br />
 				params.snap_to_grid = boolean snap_to_grid <font color="#3d8b40">--Optional. Should the spawned Objects snap to the grid if the grid is turned on? Defaults to false.</font><br />
 				params.params = Table callback_parameters <font color="#3d8b40">--Optional.</font>
+				params.sound = bool <font color="#3d8b40">--Optional. Should the spawning object make a spawn sound. Defaults to true.</font>
 			</font>
 		</td>
 	</tr>

@@ -950,7 +950,7 @@ All pieces in the game are an Object. Once you have a reference to an Object you
 	<tr>		
 		<td><font face="monospace">bool</font></td>
 		<td><font face="monospace">setCustomObject(Table parameters)</font></td>
-		<td><a class="anchor" name="setCustomObject"></a>Used to create a Custom Object. All custom types except for Custom Decks are supported. See <a href="http://berserk-games.com/knowledgebase/spawnable-objects/#Custom_Objects">here</a> for information about the parameters for each type of Custom Object.</td>
+		<td><a class="anchor" name="setCustomObject"></a>Used to create a Custom Object, if updating an existing object use reload(). All custom types except for Custom Decks are supported. See <a href="http://berserk-games.com/knowledgebase/spawnable-objects/#Custom_Objects">here</a> for information about the parameters for each type of Custom Object.</td>
 	</tr>
 <tr>		
 		<td><font face="monospace">bool</font></td>
@@ -1030,6 +1030,7 @@ All pieces in the game are an Object. Once you have a reference to an Object you
 				params.guid = string guid <font color="#3d8b40">--Optional. Only used when taking an Object from a Loot Bag by GUID.</font><br />
 				params.index = int index <font color="#3d8b40">--Optional. Used when taking an Object from a Loot Bag or a Card from a Deck by index.</font><br />
 				params.top = bool take_from_top <font color="#3d8b40">--Optional. Specifies whether to take a Card from the top or bottom of the Deck. Defaults to true, taking from the top of the Deck.</font>
+				params.smooth = bool <font color="#3d8b40">--Optional. Specifies if the object should smoothly move to position or instantly. Defaults to true.</font>
 			</font>
 			It's recommended to remove Objects from Loot Bags by their GUIDs rather than their indices since the indices can change after one object was removed.
 		</td>
