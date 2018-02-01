@@ -21,7 +21,7 @@ The API is consistent for Global or <a href="http://berserk-games.com/knowledgeb
 		<th class="table_column_rv">Return Value</th>
 		<th class="table_column_fn">Function Name</th>
 		<th>Description</th>
-	</tr>	
+	</tr>
 	<tr>
 		<td><font face="monospace">none</font></td>
 		<td><font face="monospace">onChat(string message, <a href="http://berserk-games.com/knowledgebase/player/">Player</a>)</font></td>
@@ -182,7 +182,7 @@ The API is consistent for Global or <a href="http://berserk-games.com/knowledgeb
 		<td><a class="anchor" name="onUpdate"></a>This function is called, if it exists in your script, once every frame. Typically you don't want to add too much code in this function because it can impact game performance.</td>
 	</tr>
 </table>
- 
+
 <a class="anchor" name="Global Management Functions"></a>
 <table width="100%">
 	<caption><strong><h3>Global Management Functions</h3></strong></caption>
@@ -208,13 +208,13 @@ The API is consistent for Global or <a href="http://berserk-games.com/knowledgeb
 	<tr>
 	<td><font face="monospace">bool</font></td>
 		<td><font face="monospace">broadcastToAll(string message, <a href="http://berserk-games.com/knowledgebase/color">Color</a>)</font></td>
-		<td><a class="anchor" name="printToAll"></a>Prints a message to the screen and chat window on all connected clients. The last parameter (Table) provides the color of the text to appear in the Game tab chat window.</td>
+		<td><a class="anchor" name="broadcastToAll"></a>Prints a message to the screen and chat window on all connected clients. The last parameter (Table) provides the color of the text to appear in the Game tab chat window.</td>
 	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
 		<td><font face="monospace">broadcastToColor(string message, string <a href="http://berserk-games.com/knowledgebase/player-colors/">player_color</a>, <a href="http://berserk-games.com/knowledgebase/color">Color</a>)</font></td>
-		<td><a class="anchor" name="printToColor"></a>Prints a private message to the screen and chat window to the player matching the player color. The last parameter (Table) provides the color of the text to appear in the Game tab chat window.</td>
-	</tr>	
+		<td><a class="anchor" name="broadcastToColor"></a>Prints a private message to the screen and chat window to the player matching the player color. The last parameter (Table) provides the color of the text to appear in the Game tab chat window.</td>
+	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
 		<td><font face="monospace">clearPixelPaint()</font></td>
@@ -290,6 +290,11 @@ The API is consistent for Global or <a href="http://berserk-games.com/knowledgeb
 		<td><a class="anchor" name="getSeatedPlayers"></a>Returns an indexed Lua Table of all the players that are currently seated at the table. This will not return spectators (Grey) or the Black player.</td>
 	</tr>
 	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">log(string message, <a href="http://berserk-games.com/knowledgebase/color">Color</a>)</font></td>
+		<td><a class="anchor" name="log"></a>Outputs a message to the system console.</td>
+	</tr>
+	<tr>
 		<td><font face="monospace">Table</font></td>
 		<td><font face="monospace">paste(Table parameters)</font></td>
 		<td>
@@ -363,6 +368,3 @@ The API is consistent for Global or <a href="http://berserk-games.com/knowledgeb
 		<td><a class="anchor" name="stringColorToRGB"></a>Converts a color string (player colors) to their RGB values. Returns <font face="monospace">nil</font> if an invalid/nonexistant color parameter is provided.</td>
 	</tr>
 </table>
- 
- 
- 
