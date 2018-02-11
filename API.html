@@ -291,8 +291,13 @@ The API is consistent for Global or <a href="http://berserk-games.com/knowledgeb
 	</tr>
 	<tr>
 		<td><font face="monospace">bool</font></td>
-		<td><font face="monospace">log(string message, <a href="http://berserk-games.com/knowledgebase/color">Color</a>)</font></td>
-		<td><a class="anchor" name="log"></a>Outputs a message to the system console.</td>
+		<td><font face="monospace">log(Var message, string tag = "", string label = "")</font></td>
+		<td><a class="anchor" name="log"></a>Outputs a message to the system console.  You may specify a tag to identify it by class (for example, "warning", "error") or subject ("players", "dice"), as well as a label to prefix the value.</td>
+	</tr>
+	<tr>
+		<td><font face="monospace">bool</font></td>
+		<td><font face="monospace">logStyle(string tagName, Color color, string prefix = "", string postfix = "")</font></td>
+		<td><a class="anchor" name="logStyle"></a>Sets the style options for the specified tag: the color it is displayed in and any prefix or postfix text.  This can also be set in the system console with the "log_style_tag" command.</td>
 	</tr>
 	<tr>
 		<td><font face="monospace">Table</font></td>
